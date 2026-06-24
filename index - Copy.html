@@ -1,0 +1,778 @@
+<!DOCTYPE html><html class="dark" dir="rtl" lang="he"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>עומר | סיילז פורס - סדר במכירות, ניהול צוות וטיפול בלקוח</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary": "#d4af37",
+                            "on-primary": "#3c2f00",
+                            "primary-container": "#d4af37",
+                            "on-primary-container": "#554300",
+                            "surface": "#0b141c",
+                            "surface-dim": "#0b141c",
+                            "surface-bright": "#313a43",
+                            "background": "#0b141c",
+                            "on-background": "#dae3ee",
+                            "on-surface": "#dae3ee",
+                            "on-surface-variant": "#d0c5af",
+                            "outline": "#99907c",
+                            "outline-variant": "#4d4635",
+                            "surface-container-lowest": "#060f16",
+                            "surface-container-low": "#141c24",
+                            "surface-container": "#182028",
+                            "surface-container-high": "#222b33",
+                            "surface-container-highest": "#2d363e",
+                            "error": "#ffb4ab",
+                            "error-container": "#93000a"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                        },
+                        "spacing": {
+                            "section-padding-desktop": "120px",
+                            "stack-md": "24px",
+                            "stack-lg": "48px",
+                            "container-max": "1200px",
+                            "margin-mobile": "20px"
+                        },
+                        "fontFamily": {
+                            "display": ["Plus Jakarta Sans"],
+                            "body": ["Inter"]
+                        }
+                    }
+                }
+            }
+        </script>
+    <style>
+            html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+            #contact { scroll-margin-top: 100px; }
+            body { font-family: 'Inter', sans-serif; }
+            h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
+            .glass-panel {
+                background: rgba(22, 27, 34, 0.6);
+                backdrop-filter: blur(16px);
+                border: 1px solid rgba(212, 175, 55, 0.1);
+            }
+            .gold-glow {
+                text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            }
+            .header-logo-wrap {
+                position: relative;
+                width: 12rem;
+                height: 2.25rem;
+                overflow: visible;
+            }
+            .header-logo {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                height: 7.8rem;
+                width: auto;
+                max-width: none;
+                object-fit: contain;
+                transform: translateY(-50%);
+            }
+            @media (min-width: 768px) {
+                .header-logo-wrap {
+                    width: 16rem;
+                    height: 2.5rem;
+                }
+                .header-logo {
+                    height: 9.75rem;
+                }
+            }
+            .accordion-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+            .accordion-item:target .accordion-content {
+                max-height: 200px;
+            }
+            .video-card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 16px;
+                background: #111820;
+                aspect-ratio: 9 / 16;
+                max-width: 360px;
+                width: 100%;
+                margin-inline: auto;
+            }
+            @media (max-width: 767px) {
+                .video-card {
+                    max-width: 280px;
+                }
+            }
+            .video-card video,
+            .diagnostic-video {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                background: #000;
+                transform: scale(1);
+                transition: filter 0.4s ease, transform 0.4s ease;
+            }
+            .video-card.is-playing video,
+            .video-card.is-playing .diagnostic-video {
+                filter: blur(0);
+                transform: scale(1);
+            }
+            .video-overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.45);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: opacity 0.3s ease;
+            }
+            .video-card.is-playing .video-overlay {
+                opacity: 0;
+                pointer-events: none;
+            }
+            .play-button {
+                width: 72px;
+                height: 72px;
+                border-radius: 18px;
+                background: #d4af37;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border: none;
+                z-index: 2;
+            }
+            @media (max-width: 768px) {
+                .video-card {
+                    max-width: 320px;
+                    aspect-ratio: 9 / 16;
+                }
+            }
+            .testimonial-video {
+                width: 100%;
+                aspect-ratio: 9 / 16;
+                object-fit: cover;
+                border-radius: 16px;
+                background: #000;
+                border: 1px solid rgba(212, 175, 55, 0.2);
+            }
+            .testimonial-placeholder {
+                aspect-ratio: 9 / 16;
+                border-radius: 16px;
+                border: 1px dashed rgba(212, 175, 55, 0.35);
+                background: rgba(212, 175, 55, 0.05);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 24px;
+            }
+            .testimonial-card-media {
+                width: 100%;
+                max-width: 320px;
+                margin-inline: auto;
+            }
+        </style>
+    </head>
+    <body class="bg-background text-on-background antialiased selection:bg-primary/30 selection:text-primary">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/20">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-2 shrink-0">
+    <a class="header-logo-wrap block" href="#hero" aria-label="עומר ברוך - למכור באחריות">
+    <img alt="עומר ברוך - למכור באחריות" class="header-logo" height="80" src="./herologo.png" width="320">
+    </a>
+    </div>
+    <nav class="hidden md:flex gap-8 items-center font-medium">
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#diagnostic">התהליך</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#faq">שאלות נפוצות</a>
+    <a class="bg-primary text-on-primary px-6 py-2.5 rounded font-bold hover:brightness-110 transition-all" data-scroll-contact href="#contact">תאם שיחת סדר</a>
+    </nav>
+    <div class="flex items-center gap-2 shrink-0 md:hidden">
+    <a class="bg-primary text-on-primary px-3 py-2 rounded font-bold text-sm hover:brightness-110 transition-all whitespace-nowrap" data-scroll-contact href="#contact">תאם שיחה</a>
+    <button aria-controls="mobile-nav" aria-expanded="false" aria-label="פתח תפריט" class="text-on-surface relative z-[60] p-2" id="mobile-menu-btn" type="button"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+    </div>
+    <nav class="hidden md:hidden fixed top-[73px] left-0 w-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/20 z-[55] flex flex-col gap-4 p-4 shadow-lg" id="mobile-nav">
+    <a class="text-on-surface-variant hover:text-primary transition-colors py-2" href="#diagnostic">התהליך</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors py-2" href="#faq">שאלות נפוצות</a>
+    <a class="bg-primary text-on-primary px-6 py-3 rounded font-bold hover:brightness-110 transition-all text-center" data-scroll-contact href="#contact">תאם שיחת סדר</a>
+    </nav>
+    </header>
+    <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="min-h-[90vh] flex items-center relative overflow-hidden px-margin-mobile md:px-8" id="hero">
+    <div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none" style="background: radial-gradient(circle at 80% 20%, #d4af37 0%, transparent 40%);"></div>
+    <div class="max-w-container-max mx-auto flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-12 items-center relative z-10 w-full">
+    <div class="order-1 md:col-start-1 md:row-start-1 space-y-4 w-full">
+    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter">
+      <span class="text-on-background">העסק עובד, יש לקוחות ויש צוות,</span>
+      <span class="text-primary block mt-2 gold-glow">אבל המכירות עדיין לא יציבות כמו שהן צריכות להיות.</span>
+    </h1>
+    <p class="md:hidden text-base text-on-surface-variant leading-relaxed">
+                        אני נכנס איתך לתמונה, עושה סדר בתהליך המכירה, בניהול הצוות ובטיפול בלקוח, ועוזר לך להבין מה באמת צריך לתקן קודם.
+                    </p>
+    <p class="hidden md:block text-lg text-on-surface-variant leading-relaxed max-w-xl">
+                        אני נכנס איתך לתמונה, עושה סדר בתהליך המכירה, בניהול הצוות ובטיפול בלקוח, ועוזר לך להבין מה באמת צריך לתקן קודם.
+                    </p>
+    <div class="hidden md:grid grid-cols-3 gap-4 pt-2">
+    <div class="glass-panel border border-primary/20 rounded-lg px-4 py-4 text-center">
+    <p class="text-primary font-extrabold text-xl leading-none">9</p>
+    <p class="text-on-surface-variant text-sm mt-1 leading-tight">שנים בשטח</p>
+    </div>
+    <div class="glass-panel border border-primary/20 rounded-lg px-4 py-4 text-center">
+    <p class="text-primary font-extrabold text-xl leading-none">80+</p>
+    <p class="text-on-surface-variant text-sm mt-1 leading-tight">אנשי מכירות</p>
+    </div>
+    <div class="glass-panel border border-primary/20 rounded-lg px-4 py-4 text-center">
+    <p class="text-primary font-extrabold text-xl leading-none">15</p>
+    <p class="text-on-surface-variant text-sm mt-1 leading-tight">נקודות מכירה בשיא</p>
+    </div>
+    </div>
+    </div>
+    <div class="order-2 md:col-start-2 md:row-start-1 md:row-span-4 relative flex justify-center md:items-center w-full">
+    <div class="bg-surface-container-highest rounded-2xl border border-outline-variant/30 video-card flex items-center justify-center">
+    <video id="diagnostic-video" class="diagnostic-video" src="./videoofme.mp4" playsinline preload="metadata"></video>
+    <div class="video-overlay flex flex-col items-center justify-center text-center p-8">
+    <button class="play-button mb-4 hover:scale-110 transition-transform" type="button" aria-label="נגן וידאו">
+    <span class="material-symbols-outlined text-on-primary text-3xl">play_arrow</span>
+    </button>
+    <p class="font-bold text-xl mb-2">צפה בהסבר קצר על התהליך</p>
+    <p class="text-sm text-on-surface-variant max-w-xs">עומר מסביר איך תהליך סדר עוזר לבעל עסק להבין איפה המכירות, הניהול והטיפול בלקוח נתקעים.</p>
+    </div>
+    </div>
+    </div>
+    <div class="order-3 md:col-start-1 md:row-start-3 flex flex-col sm:flex-row gap-4 w-full">
+    <a class="bg-primary text-on-primary px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all text-center leading-snug" data-scroll-contact href="#contact">בוא נעשה סדר במכירות</a>
+    <a class="border border-outline-variant text-on-surface px-5 py-3 rounded-lg font-bold text-base hover:bg-surface-bright transition-all flex items-center justify-center gap-2 w-fit mx-auto sm:mx-0" href="https://wa.me/0509001714" rel="noopener noreferrer" target="_blank"><svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.394 0 12.03c0 2.12.554 4.189 1.605 6.04L0 24l6.117-1.605a11.803 11.803 0 005.925 1.586h.005c6.631 0 12.026-5.396 12.033-12.034a11.846 11.846 0 00-3.453-8.492z"></path></svg> דבר איתי בוואטסאפ</a>
+    </div>
+    <div class="order-4 md:hidden grid grid-cols-3 gap-2 w-full">
+    <div class="glass-panel border border-primary/20 rounded-lg px-2 py-2.5 md:px-4 md:py-4 text-center">
+    <p class="text-primary font-extrabold text-base md:text-xl leading-none">9</p>
+    <p class="text-on-surface-variant text-[10px] md:text-sm mt-1 leading-tight">שנים בשטח</p>
+    </div>
+    <div class="glass-panel border border-primary/20 rounded-lg px-2 py-2.5 md:px-4 md:py-4 text-center">
+    <p class="text-primary font-extrabold text-base md:text-xl leading-none">80+</p>
+    <p class="text-on-surface-variant text-[10px] md:text-sm mt-1 leading-tight">אנשי מכירות</p>
+    </div>
+    <div class="glass-panel border border-primary/20 rounded-lg px-2 py-2.5 md:px-4 md:py-4 text-center">
+    <p class="text-primary font-extrabold text-base md:text-xl leading-none">15</p>
+    <p class="text-on-surface-variant text-[10px] md:text-sm mt-1 leading-tight">נקודות מכירה בשיא</p>
+    </div>
+    </div>
+    <div class="order-5 md:col-start-1 md:row-start-2 w-full pt-2 md:pt-0">
+    <h3 class="text-lg md:text-xl font-bold text-primary mb-3 md:mb-4">זה מתאים לך אם...</h3>
+    <ul class="space-y-2 md:space-y-3 text-sm md:text-base"><li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl md:text-2xl shrink-0">check_circle</span>אתה מרגיש שאתה כל הזמן מכבה שריפות במקום לנהל</li><li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl md:text-2xl shrink-0">check_circle</span>לקוחות מתעניינים אבל לא תמיד מקבלים טיפול עד הסוף</li><li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl md:text-2xl shrink-0">check_circle</span>הצוות עובד בלי שיטה ברורה וכל אחד עושה דברים אחרת</li><li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl md:text-2xl shrink-0">check_circle</span>המכירות לא יציבות ואתה לא בטוח מה באמת צריך לתקן קודם</li></ul>
+    </div>
+    </div>
+    </section>
+    <!-- Where Money Falls Section -->
+    <section class="py-section-padding-desktop bg-surface-container-low px-margin-mobile md:px-8" id="money-leaks">
+    <div class="max-w-container-max mx-auto space-y-12">
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold">איפה הדברים נתקעים בדרך כלל?</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">ברוב העסקים הבעיה לא נמצאת באדם אחד. היא נמצאת בדברים קטנים ביום יום שלא תמיד רואים מבפנים.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all">
+    <span class="material-symbols-outlined text-primary text-3xl mb-4">support_agent</span>
+    <h3 class="text-lg font-bold mb-2">לקוחות שלא מקבלים טיפול עד הסוף</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">לקוח מתעניין, מקבל מענה חלקי, ואף אחד לא מחזיר אותו בזמן לתהליך.</p>
+    </div>
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all">
+    <span class="material-symbols-outlined text-primary text-3xl mb-4">groups</span>
+    <h3 class="text-lg font-bold mb-2">צוות שעובד בלי שיטה אחידה</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">כל אחד מדבר אחרת, סוגר אחרת ומנהל לקוחות בצורה אחרת.</p>
+    </div>
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all">
+    <span class="material-symbols-outlined text-primary text-3xl mb-4">assignment_late</span>
+    <h3 class="text-lg font-bold mb-2">ניהול יומי שלא מחזיק אחריות</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">אין בקרה ברורה, אין סגירת יום ואין מעקב אמיתי אחרי מה שקורה בשטח.</p>
+    </div>
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all">
+    <span class="material-symbols-outlined text-primary text-3xl mb-4">schedule</span>
+    <h3 class="text-lg font-bold mb-2">פולואפים שנעלמים</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">לקוחות לא נסגרים, אבל גם לא חוזרים אליהם בצורה מסודרת.</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    <section class="py-section-padding-desktop bg-surface px-margin-mobile md:px-8 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style="background: radial-gradient(circle at 20% 50%, #d4af37 0%, transparent 50%);"></div>
+    <div class="max-w-container-max mx-auto relative z-10">
+    <div class="max-w-4xl mx-auto text-center space-y-8">
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight text-on-surface">
+                    האמת הכואבת שרוב בעלי העסקים לא רוצים לשמוע
+    </h2>
+    <div class="w-24 h-1 bg-primary mx-auto"></div>
+    <div class="space-y-6 text-lg md:text-xl text-on-surface-variant leading-relaxed font-medium max-w-3xl mx-auto">
+    <p>
+                        אם אותה בעיה חוזרת שוב ושוב עם עובדים שונים, כנראה שהבעיה היא לא רק באנשים.
+                    </p>
+    <p>
+                        אפשר להחליף עוד עובד, להביא עוד איש מכירות, לשנות סקריפט או לפתוח עוד קמפיין,
+                    </p>
+    <p class="text-primary font-bold">
+                        אבל כל עוד לא מצאת את שורש הבעיה, כל נסיון כזה הוא רק פלסטר
+                    </p>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Authority Area -->
+    <section class="py-section-padding-desktop bg-surface-container-low px-margin-mobile md:px-8">
+    <div class="max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div class="order-2 md:order-1">
+    <img alt="Omer Portrait" class="rounded-2xl border border-primary/20 shadow-2xl w-full grayscale-[20%] hover:grayscale-0 transition-all object-cover aspect-[4/5]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6EyYjIRu_vgvLNHiUI034h606Q8slpCbWWjaQXwGqWdup-DG1NFKsWuoAKMrL3lpWm7DQr9p79PnG0cbsb5WMqnIm_XJMoCbTyn3uGADhiB6Ol0a6edN5UNq19L9DqmMbqjTOvsUBcOq7P_TRJW74IcypzxkoCkUQqhb7vLivmiAqiI_hoppQGdUHDsnPCGchvcArcCSH8QyVuFuaclbPHnjMChkN1PpA0twI6w4STGu3n7ucNB-UO2PnEv2LqBefRdYzUUA5tPI">
+    </div>
+    <div class="order-1 md:order-2 space-y-8">
+    <div class="space-y-4">
+    <h2 class="text-3xl md:text-5xl font-bold">נעים להכיר, אני עומר.</h2>
+    <div class="w-20 h-1 bg-primary"></div>
+    </div>
+    <div class="space-y-4 text-on-surface-variant text-lg leading-relaxed">
+    <p>ב-9 השנים האחרונות אני חי מכירות, צוותים וניהול אופרציות, אבל לפני הכל אני מגיע מהמקום של בעל עסק שהיה בתוך זה בעצמו.</p>
+    <p>אחרי שנים של ניהול אופרציות מכירה בחו״ל, חזרתי לישראל והשארתי מאחור עסק פעיל כדי לגדל את הבן שלי, ואת הילדה שבדרך, במקום שנכון להם.</p>
+    <p>אני מכיר את הלחץ של יעדים, עובדים, לקוחות, טעויות יומיות והתחושה שאתה כל הזמן מכבה שריפות במקום לנהל. גם אני עשיתי טעויות בדרך, ודווקא משם למדתי לזהות איפה עסקים באמת נתקעים.</p>
+    <p>אחד הדברים שהכי עזרו לי כבעל עסק היה להקיף את עצמי באנשים חיצוניים שידעו להסתכל על העסק שלי מבחוץ ולשקף לי דברים שכבר לא ראיתי מתוך היום יום. לפעמים משפט אחד, זווית אחת או שאלה נכונה ממישהו שלא נמצא בתוך הרעש של העסק, יכולים לשנות תהליך שלם. היו פעמים שתובנה אחת כזו עזרה לי לשפר מכירות בעשרות אחוזים.</p>
+    <p>וזה בדיוק המקום שממנו אני מגיע היום: לא לשפוט, לא לחלק ציונים ולא להגיד לך איך לנהל את העסק שלך. אלא להיכנס איתך לתמונה, להסתכל על מה שקורה בעסק בעיניים נקיות, ולעזור לך לעשות סדר במה שבאמת תוקע את התוצאות.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+    <div class="glass-panel p-4 rounded-xl text-center">
+    <span class="material-symbols-outlined text-primary mb-2">calendar_today</span>
+    <p class="font-bold">9 שנים במכירות</p>
+    </div>
+    <div class="glass-panel p-4 rounded-xl text-center">
+    <span class="material-symbols-outlined text-primary mb-2">groups</span>
+    <p class="font-bold text-sm">מעל 80 אנשי מכירות שהוכשרו</p>
+    </div>
+    <div class="glass-panel p-4 rounded-xl text-center">
+    <span class="material-symbols-outlined text-primary mb-2">payments</span>
+    <p class="font-bold">30M+ בהכנסות בעסקים שניהלתי</p>
+    </div>
+    <div class="glass-panel p-4 rounded-xl text-center">
+    <span class="material-symbols-outlined text-primary mb-2">public</span>
+    <p class="font-bold">ישראל, פיליפינים ווייטנאם</p>
+    </div>
+    <div class="glass-panel p-4 rounded-xl text-center">
+    <span class="material-symbols-outlined text-primary mb-2">trending_up</span>
+    <p class="font-bold text-sm">מחזור חודשי של מעל מליון שקלים</p>
+    </div>
+    <div class="glass-panel p-4 rounded-xl text-center">
+    <span class="material-symbols-outlined text-primary mb-2">analytics</span>
+    <p class="font-bold text-sm">ניהול מעל 15 צוותי מכירות</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="py-section-padding-desktop bg-surface px-margin-mobile md:px-8" id="testimonials">
+    <div class="max-w-container-max mx-auto space-y-12">
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold">מה אומרים אנשים שעבדו איתי</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">אנשים שניהלתי, הכשרתי ועבדו איתי לאורך הדרך מספרים על העבודה איתי בשטח, בניהול צוותים ובמכירות.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-lg text-center flex flex-col items-center gap-5">
+    <div class="testimonial-card-media w-full">
+    <video class="testimonial-video" src="./tal.mp4" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="space-y-2">
+    <p class="font-bold text-lg text-on-surface">טל</p>
+    <p class="text-primary text-sm font-medium">אשת מכירות שעבדה תחתיי</p>
+    <p class="text-on-surface-variant text-sm leading-relaxed pt-1">טל מספרת על העבודה איתי, על תהליך ההכשרה, הניהול והכלים שקיבלה במכירות.</p>
+    </div>
+    </div>
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-lg text-center flex flex-col items-center gap-5">
+    <div class="testimonial-card-media w-full">
+    <video class="testimonial-video" src="./tamir.mp4" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="space-y-2">
+    <p class="font-bold text-lg text-on-surface">תמיר</p>
+    <p class="text-primary text-sm font-medium">איש מכירות שעבד תחתיי</p>
+    <p class="text-on-surface-variant text-sm leading-relaxed pt-1">תמיר מספר על העבודה איתי, על ניהול צוותים, תהליכי מכירה והדרך שבה עבדנו יחד בשטח.</p>
+    </div>
+    </div>
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-lg text-center flex flex-col items-center gap-5">
+    <div class="testimonial-card-media w-full">
+    <div class="testimonial-placeholder flex-col gap-3">
+    <span class="material-symbols-outlined text-primary text-5xl">format_quote</span>
+    <p class="font-bold text-on-surface">המלצה נוספת</p>
+    <p class="text-on-surface-variant text-sm">וידאו נוסף יעלה בקרוב</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Differentiation Area -->
+    <section class="py-section-padding-desktop px-margin-mobile md:px-8">
+    <div class="max-w-container-max mx-auto text-center space-y-12">
+    <div class="space-y-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold">אני לא בא ללמד את הצוות שלך עוד טכניקת מכירה.<br><span class="text-primary">אני בא להבין למה האופרציה לא סוגרת כמו שהיא צריכה.</span></h2>
+    <p class="text-on-surface-variant text-xl">לפעמים הבעיה היא לא באיש המכירות. היא בשגרה, במדידה, בניהול, באחריות ובדרך שבה הלקוח מטופל לאורך התהליך. אני נכנס איתך לתמונה כדי להסתכל יחד איפה הדברים נתקעים באמת, לא רק מה נאמר בשיחת המכירה.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-right">
+    <div class="glass-panel p-8 rounded-2xl hover:border-primary/50 transition-all border-b-4 border-b-primary/20 flex flex-col h-full">
+    <span class="material-symbols-outlined text-primary text-4xl mb-4">analytics</span>
+    <h3 class="text-xl font-bold mb-3">ניתוח תהליך המכירה והשירות</h3>
+    <p class="text-on-surface-variant text-sm flex-grow">בדיקת המסע השלם של הלקוח מנקודת המגע הראשונה ועד לסגירה או לנטישה.</p>
+    </div>
+    <div class="glass-panel p-8 rounded-2xl hover:border-primary/50 transition-all border-b-4 border-b-primary/20 flex flex-col h-full">
+    <span class="material-symbols-outlined text-primary text-4xl mb-4">edit_note</span>
+    <h3 class="text-xl font-bold mb-3">דיוק מסרים וסקריפט</h3>
+    <p class="text-on-surface-variant text-sm flex-grow">איתור מסרים חלשים בפתיחה, בניהול השיחה ובסגירה. התאמה מדויקת לקהל היעד.</p>
+    </div>
+    <div class="glass-panel p-8 rounded-2xl hover:border-primary/50 transition-all border-b-4 border-b-primary/20 flex flex-col h-full">
+    <span class="material-symbols-outlined text-primary text-4xl mb-4">assignment_return</span>
+    <h3 class="text-xl font-bold mb-3">פולואפ וניהול הזדמנויות</h3>
+    <p class="text-on-surface-variant text-sm flex-grow">איפה "מתים" הלקוחות שנופלים בין הכיסאות ואיך להחזיר אותם למעגל המכירה.</p>
+    </div>
+    <div class="glass-panel p-8 rounded-2xl hover:border-primary/50 transition-all border-b-4 border-b-primary/20 flex flex-col h-full">
+    <span class="material-symbols-outlined text-primary text-4xl mb-4">speed</span>
+    <h3 class="text-xl font-bold mb-3">מדידה וניהול יומי</h3>
+    <p class="text-on-surface-variant text-sm flex-grow">בדיקת ה-KPIs, שגרת הבוקר והמדידה האמיתית של ביצועי הצוות והניהול.</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Diagnostic: Process & Outcomes -->
+    <section class="py-section-padding-desktop bg-surface-container px-margin-mobile md:px-8" id="diagnostic">
+    <div class="max-w-container-max mx-auto space-y-12">
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold">איך עושים סדר ומה מקבלים בסוף?</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">תהליך קצר וממוקד שעוזר להסתכל על העסק מבחוץ, להבין איפה הדברים נתקעים, ולצאת עם כיוון פעולה ברור.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all flex flex-col gap-4">
+    <div class="flex items-center gap-3">
+    <span class="w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-sm shrink-0">1</span>
+    <span class="material-symbols-outlined text-primary text-3xl">forum</span>
+    </div>
+    <h3 class="text-xl font-bold">שיחה והבנת העסק</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נבין את העסק, הצוות, הלקוחות והתחושה שלך לגבי המקומות שבהם הדברים נתקעים.</p>
+    </div>
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all flex flex-col gap-4">
+    <div class="flex items-center gap-3">
+    <span class="w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-sm shrink-0">2</span>
+    <span class="material-symbols-outlined text-primary text-3xl">fact_check</span>
+    </div>
+    <h3 class="text-xl font-bold">מסתכלים על מה שקורה ביום יום</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נעבור על ניהול, טיפול בלקוחות, שיחות, הודעות, פולואפים, אחריות בצוות ומדידה.</p>
+    </div>
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all flex flex-col gap-4">
+    <div class="flex items-center gap-3">
+    <span class="w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-sm shrink-0">3</span>
+    <span class="material-symbols-outlined text-primary text-3xl">search</span>
+    </div>
+    <h3 class="text-xl font-bold">מזהים נקודות תקיעה</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נבין איפה חסר סדר: בשגרה, בניהול, בטיפול בלקוח, במסרים, בפולואפ או בסגירה.</p>
+    </div>
+    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all flex flex-col gap-4">
+    <div class="flex items-center gap-3">
+    <span class="w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-sm shrink-0">4</span>
+    <span class="material-symbols-outlined text-primary text-3xl">assignment</span>
+    </div>
+    <h3 class="text-xl font-bold">תמונת מצב ותוכנית פעולה</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">תקבל תמונת מצב ברורה, סדר עדיפויות ותוכנית פעולה ל-14 יום.</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Fit/Unfit Area -->
+    <section class="py-section-padding-desktop bg-surface-container-low px-margin-mobile md:px-8">
+    <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="space-y-6">
+    <h3 class="text-2xl font-bold flex items-center gap-2">
+    <span class="material-symbols-outlined text-green-500">task_alt</span> למי התהליך מתאים?
+                    </h3>
+    <ul class="space-y-4">
+    <li class="flex items-start gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-green-500 mt-1">check</span>
+                            עסקים עם תהליך מכירה אנושי (פרונטלי או טלפוני).
+                        </li>
+    <li class="flex items-start gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-green-500 mt-1">check</span>
+                            עסקים שמוכרים מוצר או שירות משמעותי (High-Ticket).
+                        </li>
+    <li class="flex items-start gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-green-500 mt-1">check</span>
+                            אופרציות עם פעילות קיימת שרוצות לעלות לשלב הבא.
+                        </li>
+    <li class="flex items-start gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-green-500 mt-1">check</span>
+                            בעלי עסקים שרוצים סדר, אחריות ומדידה בצוות שלהם.
+                        </li>
+    </ul>
+    </div>
+    <div class="space-y-6">
+    <h3 class="text-2xl font-bold flex items-center gap-2">
+    <span class="material-symbols-outlined text-error">cancel</span> למי זה לא מתאים?
+                    </h3>
+    <ul class="space-y-4">
+    <li class="flex items-start gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-error mt-1">close</span>
+                            מי שמחפש פתרונות קסם ללא רצון לתקן תהליכים בשטח.
+                        </li>
+    <li class="flex items-start gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-error mt-1">close</span>
+                            עסקים שעדיין לא התחילו פעילות מכירה בפועל.
+                        </li>
+    <li class="flex items-start gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-error mt-1">close</span>
+                            מי שמעדיף להאשים את השוק במקום לבדוק את הניהול.
+                        </li>
+    <li class="flex items-start gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-error mt-1">close</span>
+                            עסקים עם תנועת לקוחות דלה שאינה מצדיקה תהליך עומק.
+                        </li>
+    </ul>
+    </div>
+    </div>
+    </section>
+    <!-- How It Works -->
+    <section class="py-section-padding-desktop px-margin-mobile md:px-8 bg-surface" id="how-it-works">
+    <div class="max-w-container-max mx-auto space-y-12">
+    <div class="text-center space-y-4 max-w-2xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold">איך זה עובד?</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl">בלי שיפוט, בלי מצגת ארוכה ובלי התחייבות. קודם עושים שיחה קצרה ומבינים אם זה בכלל מתאים.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="glass-panel p-8 rounded-2xl border border-primary/10 space-y-4">
+    <div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-extrabold text-xl">1</div>
+    <h3 class="text-xl font-bold">שיחת סדר ראשונית</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נבין מה קורה בעסק, איפה אתה מרגיש שהדברים נתקעים ומה חשוב לך לפתור.</p>
+    </div>
+    <div class="glass-panel p-8 rounded-2xl border border-primary/10 space-y-4">
+    <div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-extrabold text-xl">2</div>
+    <h3 class="text-xl font-bold">מסתכלים יחד על התהליך</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">אני נכנס איתך לתמונה ובודק את הניהול, הצוות, הטיפול בלקוח והמקומות שבהם דברים נופלים.</p>
+    </div>
+    <div class="glass-panel p-8 rounded-2xl border border-primary/10 space-y-4">
+    <div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-extrabold text-xl">3</div>
+    <h3 class="text-xl font-bold">יוצאים עם כיוון ברור</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">אם יש התאמה, נמשיך לתהליך עומק ונבנה תוכנית פעולה מסודרת.</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="py-section-padding-desktop bg-surface-container px-margin-mobile md:px-8" id="faq">
+    <div class="max-w-3xl mx-auto space-y-8">
+    <h2 class="text-3xl font-bold text-center">שאלות נפוצות</h2>
+    <div class="space-y-4">
+    <div class="accordion-item" id="faq1">
+    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq1">
+    <span class="font-bold">תוך כמה זמן מקבלים את תוצאות התהליך?</span>
+    <span class="material-symbols-outlined">expand_more</span>
+    </a>
+    <div class="accordion-content p-6 text-on-surface-variant text-sm">התהליך כולו לוקח בדרך כלל בין 5 ל-7 ימי עסקים מהרגע שקיבלתי גישה לנתונים ולשיחות המוקלטות.</div>
+    </div>
+    <div class="accordion-item" id="faq2">
+    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq2">
+    <span class="font-bold">האם התהליך מתאים גם למכירות פרונטליות?</span>
+    <span class="material-symbols-outlined">expand_more</span>
+    </a>
+    <div class="accordion-content p-6 text-on-surface-variant text-sm">בהחלט. עקרונות המכירה, הניהול וההמרות זהים. נבדוק את שלבי המפגש, המסרים והמשך הקשר מול הלקוח בנקודת המכירה.</div>
+    </div>
+    <div class="accordion-item" id="faq3">
+    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq3">
+    <span class="font-bold">איך נקבע המחיר?</span>
+    <span class="material-symbols-outlined">expand_more</span>
+    </a>
+    <div class="accordion-content p-6 text-on-surface-variant text-sm">מחיר ייקבע לאחר שיחת התאמה, לפי גודל העסק, היקף הפעילות ורמת התהליך הנדרשת.</div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Contact Form -->
+    <section class="py-section-padding-desktop px-margin-mobile md:px-8 bg-surface-container-lowest" id="contact">
+    <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div class="space-y-8">
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight">רוצה לעשות סדר במכירות?</h2>
+    <p class="text-xl text-on-surface-variant">השאר פרטים ונקבע שיחה קצרה. נבין יחד מה קורה בעסק, איפה הדברים נתקעים, ואם התהליך מתאים לך.</p>
+    <p class="text-on-surface-variant text-sm">שיחת התאמה ראשונית ללא עלות וללא התחייבות.</p>
+    <div class="flex items-center gap-4 p-4 glass-panel rounded-xl">
+    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
+    <span class="material-symbols-outlined">security</span>
+    </div>
+    <p class="text-sm font-medium">הפרטים שלך מאובטחים ולא יועברו לצד ג'.</p>
+    </div>
+    </div>
+    <div class="bg-surface border border-outline-variant/30 p-8 md:p-12 rounded-3xl shadow-2xl">
+    <div id="form-error-message" class="hidden mb-6 p-5 rounded-xl border border-error/40 bg-error/10 text-error text-center font-bold"></div>
+    <form name="lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4" id="contact-form" novalidate>
+    <input type="hidden" name="form-name" value="lead-form">
+    <input type="hidden" name="subject" value="ליד חדש מדף הנחיתה - עומר ברוך">
+    <p class="hidden">
+    <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all" name="full_name" placeholder="שם מלא" required type="text">
+    <input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all" dir="ltr" name="phone" placeholder="טלפון" required type="tel">
+    </div>
+    <input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all" name="business_name" placeholder="שם העסק" required type="text">
+    <textarea class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all h-32" name="main_problem" placeholder="מה האתגר המרכזי כרגע?" required></textarea>
+    <button class="w-full bg-primary text-on-primary py-5 rounded-xl font-bold text-xl hover:brightness-110 transition-all" type="submit">שלח פרטים ונקבע שיחה</button>
+    </form>
+    <div id="form-success-message" class="hidden mt-6 p-5 rounded-xl border border-primary/40 bg-primary/10 text-on-surface text-center font-bold">
+    הפרטים התקבלו, תודה רבה. נחזור אליך בהקדם.
+    </div>
+    </div>
+    </div>
+    </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-outline-variant/20 py-12 px-margin-mobile md:px-8">
+    <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="text-center md:text-right">
+    <span class="font-display text-2xl font-extrabold tracking-tighter">
+    <span class="text-primary">עומר</span><span class="text-on-surface">- למכור באחריות</span>
+    </span>
+    <p class="text-on-surface-variant text-sm mt-2">© 2024 Omer Sales Strategic Consulting. כל הזכויות שמורות.</p>
+    </div>
+    <div class="flex gap-8 text-on-surface-variant font-medium">
+    <a class="hover:text-primary transition-all" href="#contact">פרטיות</a>
+    <a class="hover:text-primary transition-all" href="#contact">תקנון</a>
+    <a class="hover:text-primary transition-all" href="#contact">LinkedIn</a>
+    <a class="hover:text-primary transition-all" href="https://wa.me/0509001714" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+    </div>
+    </div>
+    </footer>
+    <script>
+        (function () {
+            var menuBtn = document.getElementById('mobile-menu-btn');
+            var mobileNav = document.getElementById('mobile-nav');
+            if (menuBtn && mobileNav) {
+                menuBtn.addEventListener('click', function () {
+                    var isOpen = !mobileNav.classList.contains('hidden');
+                    mobileNav.classList.toggle('hidden', isOpen);
+                    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+                });
+                mobileNav.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        mobileNav.classList.add('hidden');
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+            var contactForm = document.getElementById('contact-form');
+            var errorMessage = document.getElementById('form-error-message');
+            var successMessage = document.getElementById('form-success-message');
+
+            function validateContactForm(form) {
+                var errors = [];
+                var fullName = form.full_name.value.trim();
+                var phone = form.phone.value.trim();
+                var businessName = form.business_name.value.trim();
+                var mainProblem = form.main_problem.value.trim();
+
+                if (!fullName || fullName.length < 2) {
+                    errors.push('נא להזין שם מלא (לפחות 2 תווים).');
+                }
+
+                if (!phone) {
+                    errors.push('נא להזין מספר טלפון.');
+                } else if (/[a-zA-Z\u0590-\u05FF]/.test(phone)) {
+                    errors.push('נא להזין מספר טלפון תקין ללא אותיות.');
+                } else if (!/^[0-9+\-\s()]+$/.test(phone)) {
+                    errors.push('נא להזין מספר טלפון תקין ללא אותיות.');
+                } else if (phone.replace(/\D/g, '').length < 9) {
+                    errors.push('נא להזין מספר טלפון תקין ללא אותיות.');
+                }
+
+                if (!businessName) {
+                    errors.push('נא להזין שם עסק.');
+                }
+
+                if (!mainProblem) {
+                    errors.push('נא לפרט בקצרה מה האתגר המרכזי כרגע.');
+                } else if (mainProblem.length < 10) {
+                    errors.push('נא לפרט בקצרה מה האתגר המרכזי כרגע.');
+                }
+
+                return errors;
+            }
+
+            if (contactForm && errorMessage && successMessage) {
+                contactForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    var errors = validateContactForm(contactForm);
+
+                    if (errors.length > 0) {
+                        errorMessage.innerHTML = errors.join('<br>');
+                        errorMessage.classList.remove('hidden');
+                        successMessage.classList.add('hidden');
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        return;
+                    }
+
+                    var formData = new FormData(contactForm);
+                    var submitButton = contactForm.querySelector('button[type="submit"]');
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                    }
+
+                    fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    })
+                    .then(function (response) {
+                        if (!response.ok) {
+                            throw new Error('Form submission failed');
+                        }
+                        successMessage.classList.remove('hidden');
+                        errorMessage.classList.add('hidden');
+                        contactForm.reset();
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    })
+                    .catch(function () {
+                        errorMessage.textContent = 'הייתה בעיה בשליחת הפרטים. אפשר לנסות שוב או לפנות בוואטסאפ.';
+                        errorMessage.classList.remove('hidden');
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    })
+                    .finally(function () {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                        }
+                    });
+                });
+            }
+            document.querySelectorAll('a[href="#contact"], button[data-scroll-contact]').forEach(function(el) {
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = document.getElementById('contact');
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+            var videoCard = document.querySelector('.video-card');
+            var video = document.getElementById('diagnostic-video');
+            var playButton = document.querySelector('.play-button');
+
+            if (videoCard && video && playButton) {
+                playButton.addEventListener('click', function () {
+                    videoCard.classList.add('is-playing');
+                    video.setAttribute('controls', 'controls');
+                    video.play();
+                });
+            }
+        })();
+    </script>
+    </body></html>

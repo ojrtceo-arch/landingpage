@@ -1,0 +1,1410 @@
+<!DOCTYPE html><html dir="rtl" lang="he"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>עומר | מיפוי אסטרטגי למערכת המכירות</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&amp;family=Heebo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary": "#B88A2E",
+                            "on-primary": "#FFFFFF",
+                            "primary-container": "#F3E8D0",
+                            "on-primary-container": "#4A3410",
+                            "surface": "#FFFFFF",
+                            "surface-dim": "#F7F4EE",
+                            "surface-bright": "#FFFFFF",
+                            "background": "#F7F4EE",
+                            "on-background": "#111827",
+                            "on-surface": "#111827",
+                            "on-surface-variant": "#4B5563",
+                            "outline": "#9CA3AF",
+                            "outline-variant": "#D1C9B8",
+                            "surface-container-lowest": "#FAF8F3",
+                            "surface-container-low": "#F5F2EB",
+                            "surface-container": "#F0EDE6",
+                            "surface-container-high": "#E8E4DC",
+                            "surface-container-highest": "#E0DCD4",
+                            "error": "#DC2626",
+                            "error-container": "#FEE2E2"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                        },
+                        "spacing": {
+                            "section-padding-desktop": "120px",
+                            "stack-md": "24px",
+                            "stack-lg": "48px",
+                            "container-max": "1200px",
+                            "margin-mobile": "20px"
+                        },
+                        "fontFamily": {
+                            "display": ["Secular One", "sans-serif"],
+                            "body": ["Heebo", "sans-serif"]
+                        }
+                    }
+                }
+            }
+        </script>
+    <style>
+            html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+            #contact { scroll-margin-top: 100px; }
+            body, p, a, button, input, textarea, li {
+                font-family: 'Heebo', sans-serif;
+                line-height: 1.65;
+            }
+            h1, h2 {
+                font-family: 'Secular One', sans-serif;
+                font-weight: 400;
+                line-height: 1.15;
+            }
+            h3 {
+                font-family: 'Heebo', sans-serif;
+                font-weight: 700;
+                line-height: 1.25;
+            }
+            h4, h5, h6 {
+                font-family: 'Heebo', sans-serif;
+                font-weight: 700;
+                line-height: 1.3;
+            }
+            button, a.bg-primary {
+                font-family: 'Heebo', sans-serif;
+                font-weight: 700;
+            }
+            .glass-panel {
+                background: rgba(255, 255, 255, 0.92);
+                backdrop-filter: blur(8px);
+                border: 1px solid rgba(184, 138, 46, 0.18);
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            }
+            .card-insight {
+                position: relative;
+                overflow: hidden;
+                background: #FFFFFF;
+                border: 1px solid rgba(184, 138, 46, 0.18);
+                border-radius: 22px;
+                padding: 28px;
+                box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
+            }
+            .card-insight::before {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 22px;
+                bottom: 22px;
+                width: 4px;
+                border-radius: 999px;
+                background: #B88A2E;
+            }
+            .card-insight .card-number-bg {
+                position: absolute;
+                left: 18px;
+                bottom: -12px;
+                font-size: 92px;
+                font-weight: 900;
+                line-height: 1;
+                color: rgba(184, 138, 46, 0.10);
+                pointer-events: none;
+                font-family: 'Heebo', sans-serif;
+                user-select: none;
+            }
+            .card-insight h3 {
+                position: relative;
+                z-index: 2;
+                color: #111827;
+                font-weight: 800;
+            }
+            .card-insight p {
+                position: relative;
+                z-index: 2;
+                color: #4B5563;
+            }
+            .card-insight-dark {
+                background: rgba(255, 255, 255, 0.055);
+                border: 1px solid rgba(184, 138, 46, 0.28);
+                box-shadow: none;
+            }
+            .card-insight-dark::before {
+                background: #B88A2E;
+            }
+            .card-insight-dark h3 {
+                color: #F9FAFB;
+            }
+            .card-insight-dark p {
+                color: rgba(255, 255, 255, 0.72);
+            }
+            .card-insight-dark .card-number-bg {
+                color: rgba(184, 138, 46, 0.16);
+            }
+            .card-stat {
+                position: relative;
+                overflow: hidden;
+                background: #FFFFFF;
+                border: 1px solid rgba(184, 138, 46, 0.18);
+                border-radius: 18px;
+                padding: 20px 18px 18px;
+                box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+                text-align: right;
+                min-height: 96px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+            .card-stat::before {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 16px;
+                bottom: 16px;
+                width: 3px;
+                border-radius: 999px;
+                background: #B88A2E;
+            }
+            .card-stat-number {
+                position: absolute;
+                left: 10px;
+                bottom: -6px;
+                font-size: 68px;
+                font-weight: 900;
+                line-height: 1;
+                color: rgba(184, 138, 46, 0.11);
+                pointer-events: none;
+                font-family: 'Heebo', sans-serif;
+                user-select: none;
+            }
+            .card-stat p {
+                position: relative;
+                z-index: 2;
+                margin: 0;
+                color: #111827;
+            }
+            @media (max-width: 767px) {
+                .card-insight {
+                padding: 22px 18px;
+                }
+                .card-insight .card-number-bg {
+                font-size: 64px;
+                bottom: -6px;
+                left: 12px;
+                }
+                .card-stat {
+                padding: 16px 14px 14px;
+                min-height: 84px;
+                }
+                .card-stat-number {
+                font-size: 48px;
+                left: 8px;
+                bottom: -4px;
+                }
+            }
+            .speech-stack-gallery {
+                position: relative;
+                width: 100%;
+                max-width: 460px;
+                aspect-ratio: 4 / 5;
+                margin-inline: auto;
+                overflow: visible;
+            }
+            .speech-main-image {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                border-radius: 24px;
+                box-shadow: 0 18px 50px rgba(17, 24, 39, 0.16);
+                border: 1px solid rgba(184, 138, 46, 0.25);
+                transition: transform 0.35s ease, box-shadow 0.35s ease;
+            }
+            .speech-side-image {
+                position: absolute;
+                width: 38%;
+                aspect-ratio: 4 / 5;
+                object-fit: cover;
+                border-radius: 18px;
+                border: 1px solid rgba(184, 138, 46, 0.25);
+                box-shadow: 0 12px 32px rgba(17, 24, 39, 0.16);
+                opacity: 0;
+                transform: translateY(16px) scale(0.94);
+                transition: opacity 0.35s ease, transform 0.35s ease;
+                z-index: 2;
+            }
+            .speech-side-image-1 {
+                right: -32px;
+                bottom: 32px;
+                object-position: 88% center;
+                transform: translateY(16px) scale(0.94) rotate(3deg);
+            }
+            .speech-side-image-2 {
+                left: -32px;
+                top: 32px;
+                transform: translateY(16px) scale(0.94) rotate(-3deg);
+            }
+            .speech-stack-gallery:hover .speech-main-image {
+                transform: scale(0.985);
+            }
+            .speech-stack-gallery:hover .speech-side-image-1 {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(3deg);
+            }
+            .speech-stack-gallery:hover .speech-side-image-2 {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(-3deg);
+            }
+            @media (max-width: 767px) {
+                .speech-stack-gallery {
+                max-width: 360px;
+                aspect-ratio: auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                }
+                .speech-main-image {
+                grid-column: 1 / -1;
+                aspect-ratio: 4 / 5;
+                height: auto;
+                transform: none !important;
+                }
+                .speech-side-image {
+                position: static;
+                opacity: 1;
+                transform: none;
+                width: 100%;
+                aspect-ratio: 4 / 5;
+                }
+                .speech-side-image-1 {
+                object-position: 92% center;
+                }
+            }
+            .gold-glow {
+                text-shadow: 0 0 20px rgba(184, 138, 46, 0.24);
+            }
+            a.bg-primary:hover,
+            button.bg-primary:hover {
+                background-color: #9A7224 !important;
+                filter: none !important;
+            }
+            /* Dark sections override */
+            .dark-section {
+                background: #0F1720;
+            }
+            .dark-section .text-on-background {
+                color: #dae3ee !important;
+            }
+            .dark-section .text-on-surface {
+                color: #dae3ee !important;
+            }
+            .dark-section .text-on-surface-variant {
+                color: #c8bfab !important;
+            }
+            .dark-section .text-primary {
+                color: #B88A2E !important;
+            }
+            .dark-section .bg-primary {
+                background-color: #B88A2E !important;
+            }
+            .dark-section .glass-panel {
+                background: rgba(22, 27, 34, 0.65) !important;
+                border: 1px solid rgba(184, 138, 46, 0.15) !important;
+                box-shadow: none !important;
+            }
+            .dark-section .bg-surface {
+                background: #0b141c !important;
+                color: #dae3ee !important;
+            }
+            /* Header light */
+            .site-header {
+                background: rgba(255, 255, 255, 0.92) !important;
+                border-bottom-color: rgba(184, 138, 46, 0.15) !important;
+            }
+            #mobile-nav {
+                background: rgba(255, 255, 255, 0.97) !important;
+            }
+            .site-header .text-on-surface-variant {
+                color: #4B5563 !important;
+            }
+            .site-header .text-on-surface {
+                color: #111827 !important;
+            }
+            .header-logo-wrap {
+                position: relative;
+                width: 12rem;
+                height: 2.25rem;
+                overflow: visible;
+            }
+            .header-logo {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                height: 7.8rem;
+                width: auto;
+                max-width: none;
+                object-fit: contain;
+                transform: translateY(-50%);
+            }
+            @media (min-width: 768px) {
+                .header-logo-wrap {
+                    width: 16rem;
+                    height: 2.5rem;
+                }
+                .header-logo {
+                    height: 9.75rem;
+                }
+            }
+            .accordion-content {
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                padding: 0;
+                margin: 0;
+                transition: max-height 0.3s ease-out, opacity 0.25s ease, padding 0.25s ease;
+            }
+            .accordion-item.active .accordion-content {
+                max-height: 400px;
+                opacity: 1;
+                padding: 1.5rem;
+            }
+            .video-card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 16px;
+                background: #F3E8D0;
+                aspect-ratio: 9 / 16;
+                max-width: 360px;
+                width: 100%;
+                margin-inline: auto;
+            }
+            @media (max-width: 767px) {
+                .video-card {
+                max-width: 280px;
+                }
+            }
+            @media (max-width: 768px) {
+                .video-card {
+                max-width: 320px;
+                aspect-ratio: 9 / 16;
+                }
+            }
+            .video-card video,
+            .diagnostic-video {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                background: transparent;
+                display: block;
+            }
+            .video-sound-toggle {
+                position: absolute;
+                bottom: 16px;
+                right: 16px;
+                z-index: 3;
+                background: rgba(17, 24, 39, 0.75);
+                color: #FFFFFF;
+                border: none;
+                border-radius: 999px;
+                padding: 8px 14px;
+                font-weight: 700;
+                font-size: 0.8125rem;
+                cursor: pointer;
+                font-family: 'Heebo', sans-serif;
+                transition: background 0.2s ease;
+            }
+            .video-sound-toggle:hover {
+                background: rgba(17, 24, 39, 0.9);
+            }
+            .section-cta {
+                text-align: center;
+                padding: 2rem 1.25rem;
+                margin-top: 2.5rem;
+                max-width: 36rem;
+                margin-inline: auto;
+            }
+            .section-cta-text {
+                font-weight: 700;
+                font-size: 1.125rem;
+                color: #111827;
+                margin-bottom: 1rem;
+                line-height: 1.5;
+            }
+            .section-cta-subtext {
+                font-size: 0.875rem;
+                color: #4B5563;
+                margin-top: 0.75rem;
+            }
+            .section-cta-button {
+                display: inline-block;
+                width: 100%;
+                max-width: 22rem;
+            }
+            @media (min-width: 640px) {
+                .section-cta-button {
+                width: auto;
+                min-width: 16rem;
+                }
+            }
+            .dark-section .section-cta {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 20px;
+                border: 1px solid rgba(184, 138, 46, 0.28);
+            }
+            .dark-section .section-cta-text {
+                color: #F9FAFB;
+            }
+            .dark-section .section-cta-subtext {
+                color: rgba(255, 255, 255, 0.72);
+            }
+            .floating-cta {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 40;
+                max-width: 360px;
+                background: #FFFFFF;
+                border: 1px solid rgba(184, 138, 46, 0.25);
+                box-shadow: 0 12px 40px rgba(17, 24, 39, 0.12);
+                border-radius: 18px;
+                padding: 18px 20px 16px;
+                transform: translateY(120%);
+                opacity: 0;
+                transition: transform 0.35s ease, opacity 0.35s ease;
+                pointer-events: none;
+            }
+            .floating-cta.is-visible {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .floating-cta.is-hidden-near-contact {
+                transform: translateY(120%);
+                opacity: 0;
+                pointer-events: none;
+            }
+            .floating-cta-close {
+                position: absolute;
+                top: 10px;
+                left: 12px;
+                width: 28px;
+                height: 28px;
+                border: none;
+                background: transparent;
+                color: #4B5563;
+                font-size: 1.375rem;
+                line-height: 1;
+                cursor: pointer;
+                padding: 0;
+            }
+            .floating-cta-title {
+                font-weight: 800;
+                font-size: 0.9375rem;
+                color: #111827;
+                padding-left: 2rem;
+                margin-bottom: 0.35rem;
+                line-height: 1.45;
+            }
+            .floating-cta-sub {
+                font-size: 0.8125rem;
+                color: #4B5563;
+                margin-bottom: 0.875rem;
+                line-height: 1.45;
+            }
+            .floating-cta-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+                background: #B88A2E;
+                color: #FFFFFF;
+                font-weight: 700;
+                padding: 0.625rem 1rem;
+                border-radius: 10px;
+                transition: filter 0.2s ease;
+            }
+            .floating-cta-button:hover {
+                filter: brightness(1.08);
+            }
+            @media (max-width: 767px) {
+                .floating-cta {
+                width: calc(100% - 32px);
+                left: 16px;
+                bottom: 16px;
+                max-width: none;
+                }
+            }
+            .testimonial-video {
+                width: 100%;
+                aspect-ratio: 9 / 16;
+                object-fit: cover;
+                border-radius: 16px;
+                background: #000;
+                border: 1px solid rgba(184, 138, 46, 0.22);
+            }
+            .testimonial-main-wrap {
+                width: 100%;
+                max-width: 320px;
+                margin-inline: auto;
+            }
+            #testimonial-main-video-mobile {
+                display: block;
+            }
+            .testimonials-desktop-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1.25rem;
+                max-width: 72rem;
+                margin-inline: auto;
+            }
+            @media (min-width: 1280px) {
+                .testimonials-desktop-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 1.5rem;
+                }
+            }
+            .testimonial-desktop-card {
+                width: 100%;
+                max-width: 280px;
+                margin-inline: auto;
+                background: #FFFFFF;
+                border: 1px solid rgba(184, 138, 46, 0.18);
+                border-radius: 22px;
+                padding: 16px;
+                box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .testimonial-desktop-card .testimonial-video {
+                border-radius: 16px;
+            }
+            .testimonial-tab {
+                padding: 0.625rem 1.25rem;
+                border-radius: 9999px;
+                border: 1px solid rgba(184, 138, 46, 0.28);
+                background: rgba(255, 255, 255, 0.92);
+                color: #111827;
+                font-weight: 700;
+                transition: all 0.2s ease;
+                cursor: pointer;
+            }
+            .testimonial-tab.active {
+                background: #B88A2E;
+                color: #FFFFFF;
+                border-color: #B88A2E;
+            }
+            .testimonial-placeholder {
+                aspect-ratio: 9 / 16;
+                border-radius: 16px;
+                border: 2px dashed rgba(184, 138, 46, 0.28);
+                background: rgba(184, 138, 46, 0.04);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 24px;
+            }
+            .testimonial-card-media {
+                width: 100%;
+                max-width: 320px;
+                margin-inline: auto;
+            }
+            .frustration-cycle {
+                position: relative;
+                width: 460px;
+                height: 460px;
+                max-width: 100%;
+                margin-inline: auto;
+            }
+            .cycle-step {
+                position: absolute;
+                width: 150px;
+                min-height: 105px;
+                border-radius: 20px;
+                border: 1px solid rgba(184, 138, 46, 0.35);
+                background: rgba(255, 255, 255, 0.06);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 14px;
+                color: #dae3ee;
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            }
+            .cycle-step .number {
+                width: 28px;
+                height: 28px;
+                border-radius: 999px;
+                background: rgba(184, 138, 46, 0.16);
+                border: 1px solid rgba(184, 138, 46, 0.42);
+                color: #B88A2E;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 800;
+                margin-bottom: 8px;
+                line-height: 1;
+            }
+            .cycle-step-top {
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .cycle-step-right {
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            }
+            .cycle-step-bottom {
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .cycle-step-left {
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+            .cycle-arrow {
+                position: absolute;
+                color: #B88A2E;
+                font-size: 32px;
+                line-height: 1;
+                opacity: 0.85;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 999px;
+                background: rgba(184, 138, 46, 0.08);
+                border: 1px solid rgba(184, 138, 46, 0.18);
+            }
+            .cycle-arrow-1 { top: 24%; right: 28%; transform: rotate(-45deg); }
+            .cycle-arrow-2 { bottom: 24%; right: 28%; transform: rotate(45deg); }
+            .cycle-arrow-3 { bottom: 24%; left: 28%; transform: rotate(135deg); }
+            .cycle-arrow-4 { top: 24%; left: 28%; transform: rotate(225deg); }
+            .cycle-restart-badge {
+                display: none;
+            }
+            @media (max-width: 767px) {
+                .frustration-cycle {
+                    width: 100%;
+                    max-width: 340px;
+                    height: auto;
+                    aspect-ratio: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                }
+                .cycle-step {
+                    position: static;
+                    transform: none;
+                    width: 100%;
+                    min-height: auto;
+                }
+                .cycle-step {
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    gap: 12px;
+                    text-align: right;
+                    padding: 14px 16px;
+                }
+                .cycle-step .number {
+                    margin-bottom: 0;
+                    flex: 0 0 auto;
+                }
+                .cycle-arrow {
+                    position: static;
+                    transform: none !important;
+                    text-align: center;
+                    font-size: 28px;
+                    margin-block: -2px;
+                    width: auto;
+                    height: auto;
+                    background: transparent;
+                    border: 0;
+                    display: block;
+                }
+                .cycle-restart-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    align-self: center;
+                    margin: 0 auto;
+                    padding: 10px 18px;
+                    border-radius: 999px;
+                    border: 1px solid rgba(184, 138, 46, 0.45);
+                    background: rgba(184, 138, 46, 0.14);
+                    color: #B88A2E;
+                    font-weight: 800;
+                    text-align: center;
+                    font-size: 0.875rem;
+                }
+            }
+        </style>
+    </head>
+    <body class="bg-background text-on-background antialiased selection:bg-primary/30 selection:text-primary">
+    <!-- Header -->
+    <header class="site-header fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-outline-variant/20">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-2 shrink-0">
+    <a class="header-logo-wrap block" href="#hero" aria-label="עומר ברוך - למכור באחריות">
+    <img alt="עומר ברוך - למכור באחריות" class="header-logo" height="80" src="./herologo.png" width="320">
+    </a>
+    </div>
+    <nav class="hidden md:flex gap-8 items-center font-medium">
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#diagnostic">התהליך</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#faq">שאלות נפוצות</a>
+    <a class="bg-primary text-on-primary px-6 py-2.5 rounded font-bold hover:brightness-110 transition-all" data-scroll-contact href="#contact">תאם שיחת התאמה ראשונית</a>
+    </nav>
+    <div class="flex items-center gap-2 shrink-0 md:hidden">
+    <a class="bg-primary text-on-primary px-3 py-2 rounded font-bold text-sm hover:brightness-110 transition-all whitespace-nowrap" data-scroll-contact href="#contact">תאם שיחת התאמה</a>
+    <button aria-controls="mobile-nav" aria-expanded="false" aria-label="פתח תפריט" class="text-on-surface relative z-[60] p-2" id="mobile-menu-btn" type="button"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+    </div>
+    <nav class="hidden md:hidden fixed top-[73px] left-0 w-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/20 z-[55] flex flex-col gap-4 p-4 shadow-lg" id="mobile-nav">
+    <a class="text-on-surface-variant hover:text-primary transition-colors py-2" href="#diagnostic">התהליך</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors py-2" href="#faq">שאלות נפוצות</a>
+    <a class="bg-primary text-on-primary px-6 py-3 rounded font-bold hover:brightness-110 transition-all text-center" data-scroll-contact href="#contact">תאם שיחת התאמה ראשונית</a>
+    </nav>
+    </header>
+    <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="bg-background min-h-[90vh] flex items-center relative overflow-hidden px-margin-mobile md:px-8" id="hero">
+    <div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none" style="background: radial-gradient(circle at 80% 20%, #B88A2E 0%, transparent 40%);"></div>
+    <div class="max-w-container-max mx-auto flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-12 items-center relative z-10 w-full">
+    <div class="order-1 md:col-start-1 md:row-start-1 space-y-4 w-full">
+    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter">
+      <span class="text-on-background">העסק מכניס כסף,</span>
+      <span class="text-primary block mt-2 gold-glow">אבל אתה עדיין לא ישן טוב בלילה.</span>
+    </h1>
+    <p class="md:hidden text-base text-on-surface-variant leading-relaxed">
+                        כשעובדים מתחלפים, מנהלים לא מספיק מחזיקים את השטח והמכירות לא יציבות, כל חודש מרגיש כמו התחלה מחדש. במיפוי אסטרטגי של מערכת המכירות נבין איפה הדברים באמת נתקעים ומה צריך לתקן קודם.
+                    </p>
+    <p class="md:hidden text-sm text-primary font-medium">מתאים לעסקים פעילים עם צוות, לקוחות ותהליך מכירה קיים.</p>
+    <p class="hidden md:block text-lg text-on-surface-variant leading-relaxed max-w-xl">
+                        כשעובדים מתחלפים, מנהלים לא מספיק מחזיקים את השטח והמכירות לא יציבות, כל חודש מרגיש כמו התחלה מחדש. במיפוי אסטרטגי של מערכת המכירות נבין איפה הדברים באמת נתקעים ומה צריך לתקן קודם.
+                    </p>
+    <p class="hidden md:block text-sm text-primary font-medium">מתאים לעסקים פעילים עם צוות, לקוחות ותהליך מכירה קיים.</p>
+    <div class="hidden md:grid grid-cols-3 gap-4 pt-2">
+    <div class="glass-panel border border-primary/20 rounded-lg px-4 py-4 text-center">
+    <p class="text-primary font-extrabold text-xl leading-none">9</p>
+    <p class="text-on-surface-variant text-sm mt-1 leading-tight">שנים בשטח</p>
+    </div>
+    <div class="glass-panel border border-primary/20 rounded-lg px-4 py-4 text-center">
+    <p class="text-primary font-extrabold text-xl leading-none">80+</p>
+    <p class="text-on-surface-variant text-sm mt-1 leading-tight">אנשי מכירות</p>
+    </div>
+    <div class="glass-panel border border-primary/20 rounded-lg px-4 py-4 text-center">
+    <p class="text-primary font-extrabold text-xl leading-none">30M+</p>
+    <p class="text-on-surface-variant text-sm mt-1 leading-tight">הכנסות בעסקים שניהלתי</p>
+    </div>
+    </div>
+    </div>
+    <div class="order-2 md:col-start-2 md:row-start-1 md:row-span-4 relative flex justify-center md:items-center w-full">
+    <div class="bg-surface-container-highest rounded-2xl border border-outline-variant/30 video-card flex items-center justify-center">
+    <video id="diagnostic-video" class="diagnostic-video" src="./videoofme.mp4" autoplay muted loop playsinline preload="metadata" controls></video>
+    <button type="button" class="video-sound-toggle" id="video-sound-toggle" aria-label="הפעל סאונד">הפעל סאונד</button>
+    </div>
+    </div>
+    <div class="order-3 md:col-start-1 md:row-start-3 flex flex-col sm:flex-row gap-4 w-full">
+    <a class="bg-primary text-on-primary px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all text-center leading-snug" data-scroll-contact href="#contact">תאם שיחת התאמה ראשונית</a>
+    <a class="border border-outline-variant text-on-surface px-5 py-3 rounded-lg font-bold text-base hover:bg-surface-bright transition-all flex items-center justify-center gap-2 w-fit mx-auto sm:mx-0" href="https://wa.me/0509001714" rel="noopener noreferrer" target="_blank"><svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.394 0 12.03c0 2.12.554 4.189 1.605 6.04L0 24l6.117-1.605a11.803 11.803 0 005.925 1.586h.005c6.631 0 12.026-5.396 12.033-12.034a11.846 11.846 0 00-3.453-8.492z"></path></svg> דבר איתי בוואטסאפ</a>
+    </div>
+    <div class="order-4 md:hidden grid grid-cols-3 gap-2 w-full">
+    <div class="glass-panel border border-primary/20 rounded-lg px-2 py-2.5 md:px-4 md:py-4 text-center">
+    <p class="text-primary font-extrabold text-base md:text-xl leading-none">9</p>
+    <p class="text-on-surface-variant text-[10px] md:text-sm mt-1 leading-tight">שנים בשטח</p>
+    </div>
+    <div class="glass-panel border border-primary/20 rounded-lg px-2 py-2.5 md:px-4 md:py-4 text-center">
+    <p class="text-primary font-extrabold text-base md:text-xl leading-none">80+</p>
+    <p class="text-on-surface-variant text-[10px] md:text-sm mt-1 leading-tight">אנשי מכירות</p>
+    </div>
+    <div class="glass-panel border border-primary/20 rounded-lg px-2 py-2.5 md:px-4 md:py-4 text-center">
+    <p class="text-primary font-extrabold text-base md:text-xl leading-none">30M+</p>
+    <p class="text-on-surface-variant text-[10px] md:text-sm mt-1 leading-tight">הכנסות שניהלתי</p>
+    </div>
+    </div>
+    <div class="order-5 md:col-start-1 md:row-start-2 w-full pt-2 md:pt-0">
+    <h3 class="text-lg md:text-xl font-bold text-primary mb-3 md:mb-4">זה מתאים לך אם...</h3>
+    <ul class="space-y-2 md:space-y-3 text-sm md:text-base"><li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl md:text-2xl shrink-0">check_circle</span>אתה מרגיש שאתה כל הזמן מכבה שריפות במקום לנהל</li><li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl md:text-2xl shrink-0">check_circle</span>לקוחות מתעניינים אבל לא תמיד מקבלים טיפול עד הסוף</li><li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl md:text-2xl shrink-0">check_circle</span>הצוות עובד בלי שיטה ברורה וכל אחד עושה דברים אחרת</li><li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl md:text-2xl shrink-0">check_circle</span>המכירות לא יציבות ואתה לא בטוח מה באמת צריך לתקן קודם</li></ul>
+    </div>
+    </div>
+    </section>
+    <section class="dark-section py-section-padding-desktop px-margin-mobile md:px-8 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style="background: radial-gradient(circle at 20% 50%, #B88A2E 0%, transparent 50%);"></div>
+    <div class="max-w-container-max mx-auto relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div class="text-center md:text-right space-y-8">
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight text-on-surface">
+                    האמת הכואבת: כשהמערכת לא מחזיקה, כל חודש מתחיל מחדש
+    </h2>
+    <div class="w-24 h-1 bg-primary mx-auto md:mx-0"></div>
+    <div class="space-y-6 text-lg md:text-xl text-on-surface-variant leading-relaxed font-medium">
+    <p>
+                        אם אותה בעיה חוזרת שוב ושוב עם עובדים שונים, כנראה שהבעיה היא לא רק באנשים.
+                    </p>
+    <p>
+                        אפשר להחליף עוד עובד, להביא עוד איש מכירות, לשנות סקריפט או לפתוח עוד קמפיין,
+                    </p>
+    <p class="text-primary font-bold">
+                        כל עוד לא מצאת את שורש הבעיה, כל גיוס חדש הוא רק פלסטר.
+                    </p>
+    </div>
+    <div class="glass-panel rounded-2xl p-5 md:p-6 border border-primary/20 text-right">
+    <h3 class="text-primary font-bold text-lg mb-4">זה נראה בדרך כלל ככה:</h3>
+    <ul class="space-y-3 text-on-surface-variant text-base leading-relaxed">
+    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>גיוס ופיטורים בלי סוף</span></li>
+    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>הכשרה שלא נגמרת</span></li>
+    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>מנהלים שלא מחזיקים את השטח</span></li>
+    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>עובדים שלא רואים סיבה להישאר</span></li>
+    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>כל חודש מרגיש כמו התחלה מחדש</span></li>
+    </ul>
+    </div>
+    </div>
+    <div class="space-y-6">
+    <h3 class="text-xl md:text-2xl font-bold text-on-surface text-center">מעגל התסכול שחוזר על עצמו</h3>
+    <div class="frustration-cycle" aria-label="מעגל התסכול של בעל עסק">
+    <div class="cycle-step cycle-step-top">
+    <span class="number">1</span>
+    <span>גייסתי עובד</span>
+    </div>
+    <span class="material-symbols-outlined cycle-arrow cycle-arrow-1" aria-hidden="true">arrow_downward</span>
+    <div class="cycle-step cycle-step-right">
+    <span class="number">2</span>
+    <span>הכשרתי אותו</span>
+    </div>
+    <span class="material-symbols-outlined cycle-arrow cycle-arrow-2" aria-hidden="true">arrow_downward</span>
+    <div class="cycle-step cycle-step-bottom">
+    <span class="number">3</span>
+    <span>העובד התחיל למכור</span>
+    </div>
+    <span class="material-symbols-outlined cycle-arrow cycle-arrow-3" aria-hidden="true">arrow_downward</span>
+    <div class="cycle-step cycle-step-left">
+    <span class="number">4</span>
+    <span>העובד התפטר</span>
+    </div>
+    <span class="material-symbols-outlined cycle-arrow cycle-arrow-4" aria-hidden="true">arrow_downward</span>
+    <div class="cycle-restart-badge">ומתחילים מהתחלה</div>
+    </div>
+    </div>
+    </div>
+    <p class="text-primary font-bold text-lg md:text-xl text-center max-w-3xl mx-auto mt-12 md:mt-16 leading-relaxed px-4">לפני שמחליפים עוד עובד, פותחים עוד קמפיין או עושים עוד הדרכת מכירות, צריך להבין איפה מערכת המכירות באמת נתקעת.</p>
+    <div class="section-cta">
+    <p class="section-cta-text">מרגיש שזה קורה גם אצלך במערכת המכירות?</p>
+    <a href="#contact" data-scroll-contact class="section-cta-button bg-primary text-on-primary px-8 py-3.5 rounded-lg font-bold text-base md:text-lg hover:brightness-110 transition-all">תאם שיחת התאמה ראשונית</a>
+    <p class="section-cta-subtext">20 דקות להבין אם המיפוי מתאים לעסק שלך.</p>
+    </div>
+    </div>
+    </section>
+    <!-- Authority Area -->
+    <section class="py-section-padding-desktop bg-surface-container-low px-margin-mobile md:px-8" id="about">
+    <div class="max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div class="order-2 md:order-1">
+    <div class="speech-stack-gallery">
+    <img src="./speech1.JPG" class="speech-main-image" alt="עומר ברוך בהרצאה מול צוות מכירות">
+    <img src="./speech2.JPG" class="speech-side-image speech-side-image-1" alt="עומר ברוך בהדרכת מכירות">
+    <img src="./speech3.JPG" class="speech-side-image speech-side-image-2" alt="עומר ברוך עובד עם צוות בשטח">
+    </div>
+    </div>
+    <div class="order-1 md:order-2 space-y-8">
+    <div class="space-y-4">
+    <h2 class="text-3xl md:text-5xl font-bold">נעים להכיר, אני עומר.</h2>
+    <div class="w-20 h-1 bg-primary"></div>
+    </div>
+    <div class="space-y-4 text-on-surface-variant text-lg leading-relaxed">
+    <p>ב-9 השנים האחרונות אני חי מכירות, צוותים וניהול אופרציות, אבל לפני הכל אני מגיע מהמקום של בעל עסק שהיה בתוך זה בעצמו.</p>
+    <p>אני מכיר את הלחץ של עובדים, מנהלים, יעדים, בעיות שחוזרות על עצמן והתחושה שאתה כל הזמן מכבה שריפות במקום להוביל את העסק.</p>
+    <p>עם השנים למדתי לזהות איפה עסקים באמת נתקעים: בשגרה הניהולית, באחריות של הצוות, בטיפול בלקוח ובחוסר בהירות לגבי מה צריך לקרות ביום יום.</p>
+    <p>אני לא מגיע כדי לשפוט או לחלק ציונים, אלא כדי להיכנס איתך לתמונה, להסתכל מבחוץ על מה שקורה בעסק, ולהבין איפה מערכת המכירות נתקעת ומה צריך לתקן קודם.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="card-stat">
+    <span class="card-stat-number" aria-hidden="true">9</span>
+    <p class="font-bold">9 שנים במכירות</p>
+    </div>
+    <div class="card-stat">
+    <span class="card-stat-number" aria-hidden="true">130</span>
+    <p class="font-bold text-sm">מעל 130 אנשי מכירות שהוכשרו</p>
+    </div>
+    <div class="card-stat">
+    <span class="card-stat-number" aria-hidden="true">30M</span>
+    <p class="font-bold">30M+ בהכנסות בעסקים שניהלתי</p>
+    </div>
+    <div class="card-stat">
+    <p class="font-bold">ישראל, פיליפינים ווייטנאם</p>
+    </div>
+    <div class="card-stat">
+    <span class="card-stat-number" aria-hidden="true">15</span>
+    <p class="font-bold text-sm">מעל 15 מערכי מכירות שהוקמו</p>
+    </div>
+    <div class="card-stat">
+    <span class="card-stat-number" aria-hidden="true">20</span>
+    <p class="font-bold text-sm">מעל 20 מנהלים שהוכשרו</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="py-section-padding-desktop bg-surface-container-low px-margin-mobile md:px-8" id="testimonials">
+    <div class="max-w-container-max mx-auto space-y-12">
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold">מה אומרים אנשים שעבדו איתי</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">מנהלים ואנשי מכירות שעבדו איתי מספרים על העבודה איתי בשטח, בניהול צוותים ובמכירות.</p>
+    </div>
+    <div class="testimonials-desktop-grid hidden md:grid">
+    <div class="testimonial-desktop-card">
+    <video class="testimonial-video" src="./anya.mp4" controls playsinline preload="metadata"></video>
+    <div class="space-y-1 text-center">
+    <p class="font-bold text-on-surface">אניה</p>
+    <p class="text-primary text-sm font-medium">מנהלת שעבדה תחתיי</p>
+    <p class="text-on-surface-variant text-sm leading-relaxed pt-1">אניה מספרת על העבודה איתי כמנהלת, על ניהול צוותים, אחריות יומית ותהליכי עבודה בשטח.</p>
+    </div>
+    </div>
+    <div class="testimonial-desktop-card">
+    <video class="testimonial-video" src="./guy.mp4" controls playsinline preload="metadata"></video>
+    <div class="space-y-1 text-center">
+    <p class="font-bold text-on-surface">גיא</p>
+    <p class="text-primary text-sm font-medium">מנהל שעבד תחתיי</p>
+    <p class="text-on-surface-variant text-sm leading-relaxed pt-1">גיא מספר על העבודה איתי כמנהל, על ניהול צוותים, מכירות, שגרות עבודה והובלת אנשים לתוצאות.</p>
+    </div>
+    </div>
+    <div class="testimonial-desktop-card">
+    <video class="testimonial-video" src="./tal.mp4" controls playsinline preload="metadata"></video>
+    <div class="space-y-1 text-center">
+    <p class="font-bold text-on-surface">טל</p>
+    <p class="text-primary text-sm font-medium">אשת מכירות שעבדה תחתיי</p>
+    <p class="text-on-surface-variant text-sm leading-relaxed pt-1">טל מספרת על העבודה איתי, על תהליך ההכשרה, הניהול והכלים שקיבלה במכירות.</p>
+    </div>
+    </div>
+    <div class="testimonial-desktop-card">
+    <video class="testimonial-video" src="./tamir.mp4" controls playsinline preload="metadata"></video>
+    <div class="space-y-1 text-center">
+    <p class="font-bold text-on-surface">תמיר</p>
+    <p class="text-primary text-sm font-medium">איש מכירות שעבד תחתיי</p>
+    <p class="text-on-surface-variant text-sm leading-relaxed pt-1">תמיר מספר על העבודה איתי, על תהליך המכירה, הליווי בשטח והדרך שבה עבדנו יחד.</p>
+    </div>
+    </div>
+    </div>
+    <div class="testimonials-mobile-switcher block md:hidden max-w-4xl mx-auto space-y-6">
+    <div class="flex flex-wrap justify-center gap-2">
+    <button type="button" class="testimonial-tab active" data-testimonial-button data-video="./anya.mp4" data-name="אניה" data-role="מנהלת שעבדה תחתיי" data-description="אניה מספרת על העבודה איתי כמנהלת, על ניהול צוותים, אחריות יומית ותהליכי עבודה בשטח.">אניה</button>
+    <button type="button" class="testimonial-tab" data-testimonial-button data-video="./guy.mp4" data-name="גיא" data-role="מנהל שעבד תחתיי" data-description="גיא מספר על העבודה איתי כמנהל, על ניהול צוותים, מכירות, שגרות עבודה והובלת אנשים לתוצאות.">גיא</button>
+    <button type="button" class="testimonial-tab" data-testimonial-button data-video="./tal.mp4" data-name="טל" data-role="אשת מכירות שעבדה תחתיי" data-description="טל מספרת על העבודה איתי, על תהליך ההכשרה, הניהול והכלים שקיבלה במכירות.">טל</button>
+    <button type="button" class="testimonial-tab" data-testimonial-button data-video="./tamir.mp4" data-name="תמיר" data-role="איש מכירות שעבד תחתיי" data-description="תמיר מספר על העבודה איתי, על תהליך המכירה, הליווי בשטח והדרך שבה עבדנו יחד.">תמיר</button>
+    </div>
+    <div class="testimonial-main-wrap">
+    <video id="testimonial-main-video-mobile" class="testimonial-video" src="./anya.mp4" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="space-y-2 text-center">
+    <p id="testimonial-name" class="font-bold text-2xl text-on-surface">אניה</p>
+    <p id="testimonial-role" class="text-primary text-sm font-medium">מנהלת שעבדה תחתיי</p>
+    <p id="testimonial-description" class="text-on-surface-variant text-sm leading-relaxed pt-1">אניה מספרת על העבודה איתי כמנהלת, על ניהול צוותים, אחריות יומית ותהליכי עבודה בשטח.</p>
+    </div>
+    </div>
+    <div class="section-cta">
+    <p class="section-cta-text">רוצה להבין מה אפשר לשפר גם אצלך?</p>
+    <a href="#contact" data-scroll-contact class="section-cta-button bg-primary text-on-primary px-8 py-3.5 rounded-lg font-bold text-base md:text-lg hover:brightness-110 transition-all">תאם שיחת התאמה ראשונית</a>
+    <p class="section-cta-subtext">נבדוק אם מיפוי מערכת המכירות מתאים לעסק שלך.</p>
+    </div>
+    </div>
+    </section>
+    <!-- Mapping Process & Outcomes -->
+    <section class="py-section-padding-desktop bg-surface-container px-margin-mobile md:px-8" id="diagnostic">
+    <div class="max-w-container-max mx-auto space-y-16">
+    <div class="space-y-12">
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold">איך עובד מיפוי מערכת המכירות?</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">תהליך ממוקד של ארבעה מפגשים שבו אני מסתכל על מערכת המכירות מכמה זוויות: בעל העסק, מנהל רלוונטי ואנשים מהשטח, כדי להבין איפה הדברים באמת נתקעים ומה נכון לתקן קודם.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <div class="card-insight flex flex-col gap-4">
+    <span class="card-number-bg" aria-hidden="true">01</span>
+    <h3 class="text-xl font-bold">מיפוי עומק עם בעל העסק</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נבין את מבנה העסק, הצוות, המנהלים, תהליך המכירה, הבעיות שחוזרות על עצמן ומה הכי מטריד אותך כרגע.</p>
+    </div>
+    <div class="card-insight flex flex-col gap-4">
+    <span class="card-number-bg" aria-hidden="true">02</span>
+    <h3 class="text-xl font-bold">ניתוח שטח עם מנהל או איש מפתח</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נבדוק איך המערכת נראית מהשטח הניהולי: איפה יש עומס, חוסר אחריות, פערים בתקשורת ודברים שלא מחזיקים ביום יום.</p>
+    </div>
+    <div class="card-insight flex flex-col gap-4">
+    <span class="card-number-bg" aria-hidden="true">03</span>
+    <h3 class="text-xl font-bold">בדיקת חוויית המכירה מול אנשי המכירות</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נשמע מאנשי המכירות איך הם חווים את ההכשרה, הניהול, הלקוחות, הציפיות והעבודה היומיומית.</p>
+    </div>
+    <div class="card-insight flex flex-col gap-4">
+    <span class="card-number-bg" aria-hidden="true">04</span>
+    <h3 class="text-xl font-bold">אנליזה, מסקנות וכיוון פעולה</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נחבר את כל התמונה, נזהה את הדפוסים שחוזרים על עצמם ונגדיר מה נכון לתקן קודם.</p>
+    </div>
+    </div>
+    </div>
+    <div class="space-y-12">
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold">מה יוצא לך מהמיפוי?</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">בסוף המיפוי תדע איפה מערכת המכירות שלך נתקעת, מה שורש הבעיה, ומה הצעד הנכון לתקן קודם.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <div class="card-insight flex flex-col gap-4">
+    <span class="card-number-bg" aria-hidden="true">01</span>
+    <h3 class="text-xl font-bold">תמונת מצב ברורה</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">תבין איך מערכת המכירות שלך באמת עובדת ביום יום, לא רק איך היא אמורה לעבוד.</p>
+    </div>
+    <div class="card-insight flex flex-col gap-4">
+    <span class="card-number-bg" aria-hidden="true">02</span>
+    <h3 class="text-xl font-bold">זיהוי שורש הבעיה</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נבין אם הבעיה נמצאת בגיוס, בהכשרה, במנהלים, בשגרה, בתהליך המכירה או בטיפול בלקוח.</p>
+    </div>
+    <div class="card-insight flex flex-col gap-4">
+    <span class="card-number-bg" aria-hidden="true">03</span>
+    <h3 class="text-xl font-bold">תוכנית פעולה ממוקדת</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">תקבל סדר עדיפויות ברור: מה צריך לתקן קודם, מה אפשר לדחות ומה לא שווה לגעת בו כרגע.</p>
+    </div>
+    <div class="card-insight flex flex-col gap-4">
+    <span class="card-number-bg" aria-hidden="true">04</span>
+    <h3 class="text-xl font-bold">המלצה למסלול המשך</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נבין מה ההתערבות הנכונה לעסק: עבודה עם מנהל, סדנה לצוות, שיפור תסריט מכירה, בניית שגרה ניהולית או ליווי ממוקד.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="py-section-padding-desktop bg-surface-container px-margin-mobile md:px-8" id="faq">
+    <div class="max-w-3xl mx-auto space-y-8">
+    <h2 class="text-3xl font-bold text-center">שאלות נפוצות</h2>
+    <div class="space-y-4">
+    <div class="accordion-item" id="faq1">
+    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq1">
+    <span class="font-bold">למי המיפוי מתאים?</span>
+    <span class="material-symbols-outlined">expand_more</span>
+    </a>
+    <div class="accordion-content text-on-surface-variant text-sm">לעסקים פעילים עם צוות, מנהלים או אנשי מכירות, שיש להם מערכת מכירות קיימת אבל מרגישים שהיא לא מספיק יציבה או לא מספיק ברורה.</div>
+    </div>
+    <div class="accordion-item" id="faq2">
+    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq2">
+    <span class="font-bold">מה קורה בשיחת ההתאמה הראשונית?</span>
+    <span class="material-symbols-outlined">expand_more</span>
+    </a>
+    <div class="accordion-content text-on-surface-variant text-sm">בשיחה של כ-20 דקות נבין מה העסק עושה, מה האתגר המרכזי במכירות, מי האנשים המעורבים במערכת והאם יש התאמה למיפוי.</div>
+    </div>
+    <div class="accordion-item" id="faq3">
+    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq3">
+    <span class="font-bold">מה כולל המיפוי עצמו?</span>
+    <span class="material-symbols-outlined">expand_more</span>
+    </a>
+    <div class="accordion-content text-on-surface-variant text-sm">המיפוי כולל ארבעה מפגשים: מיפוי עומק עם בעל העסק, ניתוח שטח עם מנהל או איש מפתח, בדיקת חוויית המכירה מול אנשי המכירות, ופגישת אנליזה עם מסקנות וכיוון פעולה.</div>
+    </div>
+    <div class="accordion-item" id="faq4">
+    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq4">
+    <span class="font-bold">זה תהליך שבא לשפוט את העסק?</span>
+    <span class="material-symbols-outlined">expand_more</span>
+    </a>
+    <div class="accordion-content text-on-surface-variant text-sm">לא. המטרה היא לא לחלק ציונים ולא להגיד לך איך לנהל. המטרה היא להסתכל מבחוץ על מערכת המכירות, להבין איפה הדברים נתקעים, ולבנות כיוון ברור להמשך.</div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Contact Form -->
+    <section class="py-section-padding-desktop px-margin-mobile md:px-8 bg-surface-container-lowest" id="contact">
+    <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div class="space-y-8">
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight">רוצה להבין איפה מערכת המכירות שלך נתקעת?</h2>
+    <p class="text-xl text-on-surface-variant">השאר פרטים ונקבע שיחת התאמה ראשונית של כ-20 דקות. נבין אם העסק מתאים למיפוי ומה נכון לבדוק לעומק.</p>
+    <div class="flex items-center gap-4 p-4 glass-panel rounded-xl">
+    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
+    <span class="material-symbols-outlined">security</span>
+    </div>
+    <p class="text-sm font-medium">הפרטים שלך מאובטחים ולא יועברו לצד ג'.</p>
+    </div>
+    </div>
+    <div class="bg-surface border border-outline-variant/30 p-8 md:p-12 rounded-3xl shadow-2xl">
+    <div id="form-error-message" class="hidden mb-6 p-5 rounded-xl border border-error/40 bg-error/10 text-error text-center font-bold"></div>
+    <form name="lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4" id="contact-form" novalidate>
+    <input type="hidden" name="form-name" value="lead-form">
+    <input type="hidden" name="subject" value="ליד חדש מדף הנחיתה - עומר ברוך">
+    <p class="hidden">
+    <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all" name="full_name" placeholder="שם מלא" required type="text">
+    <input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all" dir="ltr" name="phone" placeholder="טלפון" required type="tel">
+    </div>
+    <input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all" name="business_name" placeholder="שם העסק" required type="text">
+    <textarea class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all h-32" name="main_problem" placeholder="מה הכי היית רוצה לפתור במכירות כרגע?" required></textarea>
+    <button class="w-full bg-primary text-on-primary py-5 rounded-xl font-bold text-xl hover:brightness-110 transition-all" type="submit">תאם שיחת התאמה ראשונית</button>
+    </form>
+    <div id="form-success-message" class="hidden mt-6 p-5 rounded-xl border border-primary/40 bg-primary/10 text-on-surface text-center font-bold">
+    הפרטים התקבלו, תודה רבה. נחזור אליך בהקדם.
+    </div>
+    </div>
+    </div>
+    </section>
+    </main>
+    <div id="floating-cta" class="floating-cta" aria-hidden="true">
+    <button type="button" class="floating-cta-close" aria-label="סגור">×</button>
+    <p class="floating-cta-title">רוצה להבין איפה מערכת המכירות נתקעת?</p>
+    <p class="floating-cta-sub">שיחת התאמה ראשונית של כ-20 דקות.</p>
+    <a href="#contact" data-scroll-contact class="floating-cta-button">תאם שיחה</a>
+    </div>
+    <!-- Footer -->
+    <footer class="dark-section border-t border-outline-variant/20 py-12 px-margin-mobile md:px-8">
+    <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="text-center md:text-right">
+    <span class="font-display text-2xl font-extrabold tracking-tighter">
+    <span class="text-primary">עומר</span><span style="color:#dae3ee">- למכור באחריות</span>
+    </span>
+    <p style="color:#c8bfab" class="text-sm mt-2">© 2024 Omer Sales Strategic Consulting. כל הזכויות שמורות.</p>
+    </div>
+    <div class="flex gap-8 font-medium" style="color:#c8bfab">
+    <a class="hover:text-primary transition-all" href="#contact">פרטיות</a>
+    <a class="hover:text-primary transition-all" href="#contact">תקנון</a>
+    <a class="hover:text-primary transition-all" href="#contact">LinkedIn</a>
+    <a class="hover:text-primary transition-all" href="https://wa.me/0509001714" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+    </div>
+    </div>
+    </footer>
+    <script>
+        (function () {
+            var menuBtn = document.getElementById('mobile-menu-btn');
+            var mobileNav = document.getElementById('mobile-nav');
+            if (menuBtn && mobileNav) {
+                menuBtn.addEventListener('click', function () {
+                    var isOpen = !mobileNav.classList.contains('hidden');
+                    mobileNav.classList.toggle('hidden', isOpen);
+                    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+                });
+                mobileNav.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        mobileNav.classList.add('hidden');
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+            var contactForm = document.getElementById('contact-form');
+            var errorMessage = document.getElementById('form-error-message');
+            var successMessage = document.getElementById('form-success-message');
+
+            function validateContactForm(form) {
+                var errors = [];
+                var fullName = form.full_name.value.trim();
+                var phone = form.phone.value.trim();
+                var businessName = form.business_name.value.trim();
+                var mainProblem = form.main_problem.value.trim();
+
+                if (!fullName || fullName.length < 2) {
+                    errors.push('נא להזין שם מלא (לפחות 2 תווים).');
+                }
+
+                if (!phone) {
+                    errors.push('נא להזין מספר טלפון.');
+                } else if (/[a-zA-Z\u0590-\u05FF]/.test(phone)) {
+                    errors.push('נא להזין מספר טלפון תקין ללא אותיות.');
+                } else if (!/^[0-9+\-\s()]+$/.test(phone)) {
+                    errors.push('נא להזין מספר טלפון תקין ללא אותיות.');
+                } else if (phone.replace(/\D/g, '').length < 9) {
+                    errors.push('נא להזין מספר טלפון תקין ללא אותיות.');
+                }
+
+                if (!businessName) {
+                    errors.push('נא להזין שם עסק.');
+                }
+
+                if (!mainProblem) {
+                    errors.push('נא לפרט בקצרה מה האתגר המרכזי כרגע.');
+                } else if (mainProblem.length < 10) {
+                    errors.push('נא לפרט בקצרה מה האתגר המרכזי כרגע.');
+                }
+
+                return errors;
+            }
+
+            if (contactForm && errorMessage && successMessage) {
+                contactForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    var errors = validateContactForm(contactForm);
+
+                    if (errors.length > 0) {
+                        errorMessage.innerHTML = errors.join('<br>');
+                        errorMessage.classList.remove('hidden');
+                        successMessage.classList.add('hidden');
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        return;
+                    }
+
+                    var formData = new FormData(contactForm);
+                    var submitButton = contactForm.querySelector('button[type="submit"]');
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                    }
+
+                    fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    })
+                    .then(function (response) {
+                        if (!response.ok) {
+                            throw new Error('Form submission failed');
+                        }
+                        successMessage.classList.remove('hidden');
+                        errorMessage.classList.add('hidden');
+                        contactForm.reset();
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    })
+                    .catch(function () {
+                        errorMessage.textContent = 'הייתה בעיה בשליחת הפרטים. אפשר לנסות שוב או לפנות בוואטסאפ.';
+                        errorMessage.classList.remove('hidden');
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    })
+                    .finally(function () {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                        }
+                    });
+                });
+            }
+            document.querySelectorAll('a[href="#contact"], button[data-scroll-contact]').forEach(function(el) {
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = document.getElementById('contact');
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+            var video = document.getElementById('diagnostic-video');
+            var soundToggle = document.getElementById('video-sound-toggle');
+
+            if (video) {
+                video.muted = true;
+                var playPromise = video.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(function () {});
+                }
+            }
+
+            if (video && soundToggle) {
+                soundToggle.addEventListener('click', function () {
+                    if (video.muted) {
+                        video.muted = false;
+                        video.play();
+                        soundToggle.textContent = 'כבה סאונד';
+                        soundToggle.setAttribute('aria-label', 'כבה סאונד');
+                    } else {
+                        video.muted = true;
+                        soundToggle.textContent = 'הפעל סאונד';
+                        soundToggle.setAttribute('aria-label', 'הפעל סאונד');
+                    }
+                });
+            }
+
+            var floatingCta = document.getElementById('floating-cta');
+            var testimonialsSection = document.getElementById('testimonials');
+            var contactSection = document.getElementById('contact');
+            var floatingShown = false;
+
+            function updateFloatingCta() {
+                if (!floatingCta || sessionStorage.getItem('ctaDismissed') === 'true') {
+                    return;
+                }
+
+                if (contactSection) {
+                    var contactRect = contactSection.getBoundingClientRect();
+                    if (contactRect.top < window.innerHeight * 0.85) {
+                        floatingCta.classList.add('is-hidden-near-contact');
+                        floatingCta.classList.remove('is-visible');
+                        floatingCta.setAttribute('aria-hidden', 'true');
+                        return;
+                    }
+                }
+
+                floatingCta.classList.remove('is-hidden-near-contact');
+
+                if (!floatingShown) {
+                    var scrollProgress = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+                    var passedTestimonials = testimonialsSection && testimonialsSection.getBoundingClientRect().bottom < window.innerHeight * 0.6;
+                    if (scrollProgress >= 0.45 || passedTestimonials) {
+                        floatingShown = true;
+                    }
+                }
+
+                if (floatingShown) {
+                    floatingCta.classList.add('is-visible');
+                    floatingCta.setAttribute('aria-hidden', 'false');
+                }
+            }
+
+            if (floatingCta && sessionStorage.getItem('ctaDismissed') !== 'true') {
+                var closeBtn = floatingCta.querySelector('.floating-cta-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function () {
+                        sessionStorage.setItem('ctaDismissed', 'true');
+                        floatingCta.classList.remove('is-visible');
+                        floatingCta.setAttribute('aria-hidden', 'true');
+                    });
+                }
+                window.addEventListener('scroll', updateFloatingCta, { passive: true });
+                window.addEventListener('resize', updateFloatingCta);
+                updateFloatingCta();
+            }
+
+            var testimonialVideo = document.getElementById('testimonial-main-video-mobile');
+            var testimonialMobileSwitcher = document.querySelector('.testimonials-mobile-switcher');
+            var testimonialButtons = testimonialMobileSwitcher ? testimonialMobileSwitcher.querySelectorAll('[data-testimonial-button]') : [];
+            var testimonialName = document.getElementById('testimonial-name');
+            var testimonialRole = document.getElementById('testimonial-role');
+            var testimonialDescription = document.getElementById('testimonial-description');
+
+            if (testimonialVideo && testimonialButtons.length && testimonialName && testimonialRole && testimonialDescription) {
+                testimonialButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        testimonialVideo.pause();
+                        testimonialVideo.src = button.dataset.video;
+                        testimonialVideo.load();
+
+                        testimonialName.textContent = button.dataset.name;
+                        testimonialRole.textContent = button.dataset.role;
+                        testimonialDescription.textContent = button.dataset.description;
+
+                        testimonialButtons.forEach(function (btn) {
+                            btn.classList.remove('active');
+                        });
+                        button.classList.add('active');
+                    });
+                });
+            }
+
+            var faqSection = document.getElementById('faq');
+            if (faqSection) {
+                var faqItems = faqSection.querySelectorAll('.accordion-item');
+                faqItems.forEach(function (item) {
+                    item.classList.remove('active');
+                    var trigger = item.querySelector('a[href^="#faq"]');
+                    if (!trigger) {
+                        return;
+                    }
+                    trigger.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        var isOpen = item.classList.contains('active');
+                        faqItems.forEach(function (other) {
+                            other.classList.remove('active');
+                        });
+                        if (!isOpen) {
+                            item.classList.add('active');
+                        }
+                    });
+                });
+            }
+        })();
+    </script>
+    </body></html>
