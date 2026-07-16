@@ -2,6 +2,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>עומר | מיפוי אסטרטגי למערכת המכירות</title>
+    <meta name="description" content="מיפוי, ייעוץ וליווי למערכי מכירות בעסקים בישראל. מזהים מה עוצר את המכירות ובונים דרך עבודה ברורה לבעלים, למנהלים ולצוות.">
+    <meta name="theme-color" content="#F7F4EE">
+    <meta property="og:title" content="עומר ברוך | מיפוי וליווי מערכת המכירות">
+    <meta property="og:description" content="מזהים איפה מערכת המכירות נתקעת, מחליטים מה לתקן ומטמיעים את השינוי בשטח.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./logo-mark.png">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&amp;family=Heebo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -143,6 +149,79 @@
             }
             .card-insight-dark .card-number-bg {
                 color: rgba(184, 138, 46, 0.16);
+            }
+            .solution-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+                gap: 4rem;
+                align-items: start;
+            }
+            .solution-steps {
+                position: relative;
+                display: grid;
+                gap: 1.25rem;
+            }
+            .solution-steps::before {
+                content: "";
+                position: absolute;
+                top: 2.5rem;
+                bottom: 2.5rem;
+                right: 1.65rem;
+                width: 2px;
+                background: linear-gradient(to bottom, #B88A2E, rgba(184, 138, 46, 0.12));
+            }
+            .solution-step {
+                position: relative;
+                display: grid;
+                grid-template-columns: 3.4rem 1fr;
+                gap: 1.1rem;
+                align-items: start;
+                padding: 1.5rem;
+                border-radius: 1.25rem;
+                background: #FFFFFF;
+                border: 1px solid rgba(184, 138, 46, 0.2);
+                box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
+            }
+            .solution-step-number {
+                position: relative;
+                z-index: 1;
+                display: grid;
+                place-items: center;
+                width: 3.4rem;
+                height: 3.4rem;
+                border-radius: 999px;
+                background: #B88A2E;
+                color: #FFFFFF;
+                font-weight: 900;
+                font-size: 1.1rem;
+                box-shadow: 0 8px 20px rgba(184, 138, 46, 0.25);
+            }
+            .solution-result {
+                border-right: 4px solid #B88A2E;
+                background: rgba(184, 138, 46, 0.08);
+                padding: 1.25rem 1.5rem;
+                border-radius: 1rem;
+                color: #111827;
+                font-weight: 800;
+                line-height: 1.7;
+            }
+            @media (max-width: 767px) {
+                .solution-layout {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+                .solution-step {
+                    grid-template-columns: 2.75rem 1fr;
+                    gap: 0.85rem;
+                    padding: 1.1rem;
+                }
+                .solution-step-number {
+                    width: 2.75rem;
+                    height: 2.75rem;
+                }
+                .solution-steps::before {
+                    right: 1.35rem;
+                }
             }
             .card-stat {
                 position: relative;
@@ -335,28 +414,66 @@
                 color: #111827 !important;
             }
             .header-logo-wrap {
-                position: relative;
-                width: 12rem;
-                height: 2.25rem;
-                overflow: visible;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.65rem;
+                width: auto;
+                height: auto;
             }
             .header-logo {
-                position: absolute;
-                right: 0;
-                top: 50%;
-                height: 7.8rem;
-                width: auto;
-                max-width: none;
+                position: static;
+                width: 3rem;
+                height: 3rem;
                 object-fit: contain;
-                transform: translateY(-50%);
+                transform: none;
+                flex: 0 0 auto;
             }
-            @media (min-width: 768px) {
+            .brand-lockup-text {
+                display: flex;
+                flex-direction: column;
+                line-height: 1.1;
+            }
+            .brand-lockup-name {
+                color: #B88A2E;
+                font-family: 'Secular One', sans-serif;
+                font-size: 1.35rem;
+                white-space: nowrap;
+            }
+            .brand-lockup-subtitle {
+                margin-top: 0.25rem;
+                color: #4B5563;
+                font-size: 0.72rem;
+                font-weight: 600;
+                letter-spacing: 0.01em;
+                white-space: nowrap;
+            }
+            @media (max-width: 767px) {
+                [class~="py-section-padding-desktop"] {
+                    padding-top: 4.5rem !important;
+                    padding-bottom: 4.5rem !important;
+                }
                 .header-logo-wrap {
-                    width: 16rem;
-                    height: 2.5rem;
+                    gap: 0.4rem;
                 }
                 .header-logo {
-                    height: 9.75rem;
+                    width: 2.45rem;
+                    height: 2.45rem;
+                }
+                .brand-lockup-name {
+                    font-size: 1rem;
+                }
+                .site-header .brand-lockup-subtitle {
+                    display: none;
+                }
+                .site-header > div {
+                    padding-top: 0.75rem;
+                    padding-bottom: 0.75rem;
+                }
+            }
+            @media (min-width: 768px) {
+                .header-logo {
+                    width: 3.25rem;
+                    height: 3.25rem;
                 }
             }
             .accordion-content {
@@ -531,10 +648,24 @@
             }
             @media (max-width: 767px) {
                 .floating-cta {
-                width: calc(100% - 32px);
-                left: 16px;
-                bottom: 16px;
-                max-width: none;
+                    width: calc(100% - 24px);
+                    left: 12px;
+                    bottom: 10px;
+                    max-width: none;
+                    padding: 8px;
+                    border-radius: 14px;
+                }
+                .floating-cta-title,
+                .floating-cta-sub,
+                .floating-cta-close {
+                    display: none;
+                }
+                .floating-cta-button {
+                    min-height: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1rem;
                 }
             }
             .testimonial-video {
@@ -561,7 +692,7 @@
             }
             @media (min-width: 1280px) {
                 .testimonials-desktop-grid {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
+                grid-template-columns: repeat(3, minmax(0, 1fr));
                 gap: 1.5rem;
                 }
             }
@@ -753,22 +884,23 @@
     <header class="site-header fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-outline-variant/20">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-8 py-4 flex justify-between items-center">
     <div class="flex items-center gap-2 shrink-0">
-    <a class="header-logo-wrap block" href="#hero" aria-label="עומר ברוך - למכור באחריות">
-    <img alt="עומר ברוך - למכור באחריות" class="header-logo" height="80" src="./herologo.png" width="320">
+    <a class="header-logo-wrap" href="#hero" aria-label="עומר ברוך - ייעוץ וליווי למערכי מכירות">
+    <img alt="" aria-hidden="true" class="header-logo" height="220" src="./logo-mark.png" width="170">
+    <span class="brand-lockup-text"><span class="brand-lockup-name">עומר ברוך</span><span class="brand-lockup-subtitle">ייעוץ וליווי למערכי מכירות</span></span>
     </a>
     </div>
     <nav class="hidden md:flex gap-8 items-center font-medium">
-    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#diagnostic">התהליך</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#solution">איך זה עובד</a>
     <a class="text-on-surface-variant hover:text-primary transition-colors" href="#faq">שאלות נפוצות</a>
     <a class="bg-primary text-on-primary px-6 py-2.5 rounded font-bold hover:brightness-110 transition-all" data-scroll-contact href="#contact">תאם שיחת התאמה ראשונית</a>
     </nav>
     <div class="flex items-center gap-2 shrink-0 md:hidden">
-    <a class="bg-primary text-on-primary px-3 py-2 rounded font-bold text-sm hover:brightness-110 transition-all whitespace-nowrap" data-scroll-contact href="#contact">תאם שיחת התאמה</a>
+    <a class="bg-primary text-on-primary px-3 py-2 rounded font-bold text-xs hover:brightness-110 transition-all whitespace-nowrap" data-scroll-contact href="#contact">בדיקת התאמה</a>
     <button aria-controls="mobile-nav" aria-expanded="false" aria-label="פתח תפריט" class="text-on-surface relative z-[60] p-2" id="mobile-menu-btn" type="button"><span class="material-symbols-outlined">menu</span></button>
     </div>
     </div>
     <nav class="hidden md:hidden fixed top-[73px] left-0 w-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/20 z-[55] flex flex-col gap-4 p-4 shadow-lg" id="mobile-nav">
-    <a class="text-on-surface-variant hover:text-primary transition-colors py-2" href="#diagnostic">התהליך</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors py-2" href="#solution">איך זה עובד</a>
     <a class="text-on-surface-variant hover:text-primary transition-colors py-2" href="#faq">שאלות נפוצות</a>
     <a class="bg-primary text-on-primary px-6 py-3 rounded font-bold hover:brightness-110 transition-all text-center" data-scroll-contact href="#contact">תאם שיחת התאמה ראשונית</a>
     </nav>
@@ -797,8 +929,8 @@
     <p class="text-on-surface-variant text-sm mt-1 leading-tight">שנים בשטח</p>
     </div>
     <div class="glass-panel border border-primary/20 rounded-lg px-4 py-4 text-center">
-    <p class="text-primary font-extrabold text-xl leading-none">80+</p>
-    <p class="text-on-surface-variant text-sm mt-1 leading-tight">אנשי מכירות</p>
+    <p class="text-primary font-extrabold text-xl leading-none">130+</p>
+    <p class="text-on-surface-variant text-sm mt-1 leading-tight">אנשי מכירות שהוכשרו</p>
     </div>
     <div class="glass-panel border border-primary/20 rounded-lg px-4 py-4 text-center">
     <p class="text-primary font-extrabold text-xl leading-none">30M+</p>
@@ -822,8 +954,8 @@
     <p class="text-on-surface-variant text-[10px] md:text-sm mt-1 leading-tight">שנים בשטח</p>
     </div>
     <div class="glass-panel border border-primary/20 rounded-lg px-2 py-2.5 md:px-4 md:py-4 text-center">
-    <p class="text-primary font-extrabold text-base md:text-xl leading-none">80+</p>
-    <p class="text-on-surface-variant text-[10px] md:text-sm mt-1 leading-tight">אנשי מכירות</p>
+    <p class="text-primary font-extrabold text-base md:text-xl leading-none">130+</p>
+    <p class="text-on-surface-variant text-[10px] md:text-sm mt-1 leading-tight">אנשי מכירות שהוכשרו</p>
     </div>
     <div class="glass-panel border border-primary/20 rounded-lg px-2 py-2.5 md:px-4 md:py-4 text-center">
     <p class="text-primary font-extrabold text-base md:text-xl leading-none">30M+</p>
@@ -836,69 +968,47 @@
     </div>
     </div>
     </section>
-    <section class="dark-section py-section-padding-desktop px-margin-mobile md:px-8 relative overflow-hidden">
+    <section class="dark-section py-section-padding-desktop px-margin-mobile md:px-8 relative overflow-hidden" id="problem">
     <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style="background: radial-gradient(circle at 20% 50%, #B88A2E 0%, transparent 50%);"></div>
-    <div class="max-w-container-max mx-auto relative z-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-    <div class="text-center md:text-right space-y-8">
-    <h2 class="text-3xl md:text-5xl font-bold leading-tight text-on-surface">
-                    האמת הכואבת: כשהמערכת לא מחזיקה, כל חודש מתחיל מחדש
-    </h2>
-    <div class="w-24 h-1 bg-primary mx-auto md:mx-0"></div>
-    <div class="space-y-6 text-lg md:text-xl text-on-surface-variant leading-relaxed font-medium">
-    <p>
-                        אם אותה בעיה חוזרת שוב ושוב עם עובדים שונים, כנראה שהבעיה היא לא רק באנשים.
-                    </p>
-    <p>
-                        אפשר להחליף עוד עובד, להביא עוד איש מכירות, לשנות סקריפט או לפתוח עוד קמפיין,
-                    </p>
-    <p class="text-primary font-bold">
-                        כל עוד לא מצאת את שורש הבעיה, כל גיוס חדש הוא רק פלסטר.
-                    </p>
+    <div class="max-w-container-max mx-auto relative z-10 space-y-10">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight text-on-surface">כשהמערכת לא מחזיקה, כל חודש מתחיל מחדש</h2>
+    <div class="w-24 h-1 bg-primary mx-auto"></div>
+    <p class="text-lg md:text-xl text-on-surface-variant leading-relaxed">אם אותה בעיה חוזרת עם עובדים שונים, כנראה שהבעיה היא לא רק באנשים. אפשר לגייס שוב, לשנות סקריפט או לפתוח עוד קמפיין - אבל בלי לטפל בשורש, הבעיה תחזור.</p>
     </div>
-    <div class="glass-panel rounded-2xl p-5 md:p-6 border border-primary/20 text-right">
-    <h3 class="text-primary font-bold text-lg mb-4">זה נראה בדרך כלל ככה:</h3>
-    <ul class="space-y-3 text-on-surface-variant text-base leading-relaxed">
-    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>גיוס ופיטורים בלי סוף</span></li>
-    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>הכשרה שלא נגמרת</span></li>
-    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>מנהלים שלא מחזיקים את השטח</span></li>
-    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>עובדים שלא רואים סיבה להישאר</span></li>
-    <li class="flex items-start gap-3"><span class="text-primary font-bold">•</span><span>כל חודש מרגיש כמו התחלה מחדש</span></li>
-    </ul>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+    <div class="card-insight card-insight-dark"><h3 class="text-lg font-bold">הצוות עובד אחרת בכל פעם</h3><p class="text-sm leading-relaxed mt-2">אין דרך עבודה אחת שכולם מכירים ומיישמים.</p></div>
+    <div class="card-insight card-insight-dark"><h3 class="text-lg font-bold">לידים נופלים בין הכיסאות</h3><p class="text-sm leading-relaxed mt-2">לקוחות מתעניינים, אבל המעקב לא תמיד מגיע עד הסוף.</p></div>
+    <div class="card-insight card-insight-dark"><h3 class="text-lg font-bold">המנהלים עדיין צריכים אותך</h3><p class="text-sm leading-relaxed mt-2">האחריות חוזרת לבעל העסק במקום להישאר אצל המנהל.</p></div>
+    <div class="card-insight card-insight-dark"><h3 class="text-lg font-bold">קשה לדעת מה לתקן</h3><p class="text-sm leading-relaxed mt-2">יש הרבה סימפטומים, אבל אין תמונה ברורה של שורש הבעיה.</p></div>
     </div>
     </div>
-    <div class="space-y-6">
-    <h3 class="text-xl md:text-2xl font-bold text-on-surface text-center">מעגל התסכול שחוזר על עצמו</h3>
-    <div class="frustration-cycle" aria-label="מעגל התסכול של בעל עסק">
-    <div class="cycle-step cycle-step-top">
-    <span class="number">1</span>
-    <span>גייסתי עובד</span>
+    </section>
+    <!-- Solution -->
+    <section class="py-section-padding-desktop bg-surface-container-lowest px-margin-mobile md:px-8" id="solution">
+    <div class="max-w-container-max mx-auto solution-layout">
+    <div class="space-y-6 md:sticky md:top-28">
+    <p class="text-primary font-bold tracking-wide">איך פותרים את זה</p>
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight">לא מתחילים בעוד הדרכת מכירות. מתחילים במה שבאמת עוצר את המכירות.</h2>
+    <p class="text-on-surface-variant text-lg leading-relaxed">אני נכנס לעסק ובודק מה קורה בפועל: איך לידים מטופלים, איך המנהלים מחזיקים את הצוות, איך מתנהלות שיחות המכירה ואיפה עסקאות נופלות בדרך.</p>
+    <p class="text-on-surface-variant text-lg leading-relaxed">אחרי שמוצאים את הבעיה, בונים סדר עבודה ברור ומטמיעים אותו עם האנשים שאחראים לתוצאה.</p>
+    <div class="solution-result">המטרה היא לא להשאיר אותך עם עוד מצגת. המטרה היא לבנות מערכת מכירות ברורה, מדידה ויציבה יותר - שלא חוזרת אליך בכל פעם שמשהו נתקע.</div>
+    <a href="#contact" data-scroll-contact class="section-cta-button bg-primary text-on-primary px-8 py-3.5 rounded-lg font-bold text-base md:text-lg hover:brightness-110 transition-all text-center">בוא נבדוק מה עוצר את המכירות אצלך</a>
+    <p class="text-sm text-on-surface-variant">20 דקות כדי להבין מה קורה בעסק ואם יש לי דרך לעזור.</p>
     </div>
-    <span class="material-symbols-outlined cycle-arrow cycle-arrow-1" aria-hidden="true">arrow_downward</span>
-    <div class="cycle-step cycle-step-right">
-    <span class="number">2</span>
-    <span>הכשרתי אותו</span>
-    </div>
-    <span class="material-symbols-outlined cycle-arrow cycle-arrow-2" aria-hidden="true">arrow_downward</span>
-    <div class="cycle-step cycle-step-bottom">
-    <span class="number">3</span>
-    <span>העובד התחיל למכור</span>
-    </div>
-    <span class="material-symbols-outlined cycle-arrow cycle-arrow-3" aria-hidden="true">arrow_downward</span>
-    <div class="cycle-step cycle-step-left">
-    <span class="number">4</span>
-    <span>העובד התפטר</span>
-    </div>
-    <span class="material-symbols-outlined cycle-arrow cycle-arrow-4" aria-hidden="true">arrow_downward</span>
-    <div class="cycle-restart-badge">ומתחילים מהתחלה</div>
-    </div>
-    </div>
-    </div>
-    <p class="text-primary font-bold text-lg md:text-xl text-center max-w-3xl mx-auto mt-12 md:mt-16 leading-relaxed px-4">לפני שמחליפים עוד עובד, פותחים עוד קמפיין או עושים עוד הדרכת מכירות, צריך להבין איפה מערכת המכירות באמת נתקעת.</p>
-    <div class="section-cta">
-    <p class="section-cta-text">מרגיש שזה קורה גם אצלך במערכת המכירות?</p>
-    <a href="#contact" data-scroll-contact class="section-cta-button bg-primary text-on-primary px-8 py-3.5 rounded-lg font-bold text-base md:text-lg hover:brightness-110 transition-all">תאם שיחת התאמה ראשונית</a>
-    <p class="section-cta-subtext">20 דקות להבין אם המיפוי מתאים לעסק שלך.</p>
+    <div class="solution-steps" aria-label="שלבי העבודה">
+    <article class="solution-step">
+    <span class="solution-step-number" aria-hidden="true">01</span>
+    <div><h3 class="text-xl md:text-2xl font-bold">מוצאים איפה המכירות נתקעות</h3><p class="text-on-surface-variant leading-relaxed mt-2">עוברים על תהליך המכירה, הטיפול בלידים, שגרות הניהול, המדדים והעבודה של הצוות. לא מנחשים. בודקים מה באמת קורה בשטח.</p></div>
+    </article>
+    <article class="solution-step">
+    <span class="solution-step-number" aria-hidden="true">02</span>
+    <div><h3 class="text-xl md:text-2xl font-bold">מחליטים מה מתקנים קודם</h3><p class="text-on-surface-variant leading-relaxed mt-2">לא צריך לשנות הכול. מגדירים את הנקודות שפוגעות הכי הרבה במכירות ובונים סדר פעולות שמתאים לעסק.</p></div>
+    </article>
+    <article class="solution-step">
+    <span class="solution-step-number" aria-hidden="true">03</span>
+    <div><h3 class="text-xl md:text-2xl font-bold">גורמים לזה לעבוד ביום-יום</h3><p class="text-on-surface-variant leading-relaxed mt-2">עובדים עם הבעלים, המנהלים ואנשי המכירות על מה שצריך להשתנות: אחריות, מעקב, שגרות ניהול, תהליך מכירה וטיפול בלקוחות.</p></div>
+    </article>
     </div>
     </div>
     </section>
@@ -919,10 +1029,8 @@
     <div class="w-20 h-1 bg-primary"></div>
     </div>
     <div class="space-y-4 text-on-surface-variant text-lg leading-relaxed">
-    <p>ב-9 השנים האחרונות אני חי מכירות, צוותים וניהול אופרציות, אבל לפני הכל אני מגיע מהמקום של בעל עסק שהיה בתוך זה בעצמו.</p>
-    <p>אני מכיר את הלחץ של עובדים, מנהלים, יעדים, בעיות שחוזרות על עצמן והתחושה שאתה כל הזמן מכבה שריפות במקום להוביל את העסק.</p>
-    <p>עם השנים למדתי לזהות איפה עסקים באמת נתקעים: בשגרה הניהולית, באחריות של הצוות, בטיפול בלקוח ובחוסר בהירות לגבי מה צריך לקרות ביום יום.</p>
-    <p>אני לא מגיע כדי לשפוט או לחלק ציונים, אלא כדי להיכנס איתך לתמונה, להסתכל מבחוץ על מה שקורה בעסק, ולהבין איפה מערכת המכירות נתקעת ומה צריך לתקן קודם.</p>
+    <p>ב-9 השנים האחרונות אני עובד במכירות, בניהול צוותים ובהקמת מערכי מכירות. אני מגיע גם מהצד של בעל עסק שמכיר את הלחץ, היעדים והבעיות שחוזרות לשולחן שוב ושוב.</p>
+    <p>אני לא מגיע לחלק ציונים. אני נכנס לעסק, בודק מה קורה בשטח ועוזר לבנות דרך עבודה ברורה יותר לבעלים, למנהלים ולצוות המכירות.</p>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
     <div class="card-stat">
@@ -957,12 +1065,28 @@
     <section class="py-section-padding-desktop bg-surface-container-low px-margin-mobile md:px-8" id="testimonials">
     <div class="max-w-container-max mx-auto space-y-12">
     <div class="text-center space-y-4 max-w-3xl mx-auto">
-    <h2 class="text-3xl md:text-5xl font-bold">מה אומרים אנשים שעבדו איתי</h2>
-    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">מנהלים ואנשי מכירות שעבדו איתי מספרים על העבודה איתי בשטח, בניהול צוותים ובמכירות.</p>
+    <h2 class="text-3xl md:text-5xl font-bold">מנהלים ובעלי עסקים שליוויתי מספרים</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">אנשים שעבדתי איתם מספרים על הליווי, הניהול, העבודה עם צוותים והשיפור במכירות.</p>
     </div>
     <div class="testimonials-desktop-grid hidden md:grid">
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./anya.mp4" controls playsinline preload="metadata"></video>
+    <video class="testimonial-video" src="./kris.mp4" controls playsinline preload="none"></video>
+    <div class="space-y-1 text-center">
+    <p class="font-bold text-on-surface">כריס</p>
+    <p class="text-primary text-sm font-medium">בעלת עסק</p>
+    <p class="text-on-surface-variant text-sm leading-relaxed pt-1">כריס מספרת על העבודה איתי ועל הליווי שקיבלה במערכת המכירות בעסק.</p>
+    </div>
+    </div>
+    <div class="testimonial-desktop-card">
+    <video class="testimonial-video" src="./eitan.mp4" controls playsinline preload="none"></video>
+    <div class="space-y-1 text-center">
+    <p class="font-bold text-on-surface">איתן</p>
+    <p class="text-primary text-sm font-medium">בעל עסק</p>
+    <p class="text-on-surface-variant text-sm leading-relaxed pt-1">איתן מספר על העבודה איתי ועל הליווי שקיבל במערכת המכירות בעסק.</p>
+    </div>
+    </div>
+    <div class="testimonial-desktop-card">
+    <video class="testimonial-video" src="./anya.mp4" controls playsinline preload="none"></video>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">אניה</p>
     <p class="text-primary text-sm font-medium">מנהלת שעבדה תחתיי</p>
@@ -970,7 +1094,7 @@
     </div>
     </div>
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./guy.mp4" controls playsinline preload="metadata"></video>
+    <video class="testimonial-video" src="./guy.mp4" controls playsinline preload="none"></video>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">גיא</p>
     <p class="text-primary text-sm font-medium">מנהל שעבד תחתיי</p>
@@ -978,7 +1102,7 @@
     </div>
     </div>
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./tal.mp4" controls playsinline preload="metadata"></video>
+    <video class="testimonial-video" src="./tal.mp4" controls playsinline preload="none"></video>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">טל</p>
     <p class="text-primary text-sm font-medium">אשת מכירות שעבדה תחתיי</p>
@@ -986,7 +1110,7 @@
     </div>
     </div>
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./tamir.mp4" controls playsinline preload="metadata"></video>
+    <video class="testimonial-video" src="./tamir.mp4" controls playsinline preload="none"></video>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">תמיר</p>
     <p class="text-primary text-sm font-medium">איש מכירות שעבד תחתיי</p>
@@ -996,18 +1120,20 @@
     </div>
     <div class="testimonials-mobile-switcher block md:hidden max-w-4xl mx-auto space-y-6">
     <div class="flex flex-wrap justify-center gap-2">
-    <button type="button" class="testimonial-tab active" data-testimonial-button data-video="./anya.mp4" data-name="אניה" data-role="מנהלת שעבדה תחתיי" data-description="אניה מספרת על העבודה איתי כמנהלת, על ניהול צוותים, אחריות יומית ותהליכי עבודה בשטח.">אניה</button>
+    <button type="button" class="testimonial-tab active" data-testimonial-button data-video="./kris.mp4" data-name="כריס" data-role="בעלת עסק" data-description="כריס מספרת על העבודה איתי ועל הליווי שקיבלה במערכת המכירות בעסק.">כריס</button>
+    <button type="button" class="testimonial-tab" data-testimonial-button data-video="./eitan.mp4" data-name="איתן" data-role="בעל עסק" data-description="איתן מספר על העבודה איתי ועל הליווי שקיבל במערכת המכירות בעסק.">איתן</button>
+    <button type="button" class="testimonial-tab" data-testimonial-button data-video="./anya.mp4" data-name="אניה" data-role="מנהלת שעבדה תחתיי" data-description="אניה מספרת על העבודה איתי כמנהלת, על ניהול צוותים, אחריות יומית ותהליכי עבודה בשטח.">אניה</button>
     <button type="button" class="testimonial-tab" data-testimonial-button data-video="./guy.mp4" data-name="גיא" data-role="מנהל שעבד תחתיי" data-description="גיא מספר על העבודה איתי כמנהל, על ניהול צוותים, מכירות, שגרות עבודה והובלת אנשים לתוצאות.">גיא</button>
     <button type="button" class="testimonial-tab" data-testimonial-button data-video="./tal.mp4" data-name="טל" data-role="אשת מכירות שעבדה תחתיי" data-description="טל מספרת על העבודה איתי, על תהליך ההכשרה, הניהול והכלים שקיבלה במכירות.">טל</button>
     <button type="button" class="testimonial-tab" data-testimonial-button data-video="./tamir.mp4" data-name="תמיר" data-role="איש מכירות שעבד תחתיי" data-description="תמיר מספר על העבודה איתי, על תהליך המכירה, הליווי בשטח והדרך שבה עבדנו יחד.">תמיר</button>
     </div>
     <div class="testimonial-main-wrap">
-    <video id="testimonial-main-video-mobile" class="testimonial-video" src="./anya.mp4" controls playsinline preload="metadata"></video>
+    <video id="testimonial-main-video-mobile" class="testimonial-video" src="./kris.mp4" controls playsinline preload="none"></video>
     </div>
     <div class="space-y-2 text-center">
-    <p id="testimonial-name" class="font-bold text-2xl text-on-surface">אניה</p>
-    <p id="testimonial-role" class="text-primary text-sm font-medium">מנהלת שעבדה תחתיי</p>
-    <p id="testimonial-description" class="text-on-surface-variant text-sm leading-relaxed pt-1">אניה מספרת על העבודה איתי כמנהלת, על ניהול צוותים, אחריות יומית ותהליכי עבודה בשטח.</p>
+    <p id="testimonial-name" class="font-bold text-2xl text-on-surface">כריס</p>
+    <p id="testimonial-role" class="text-primary text-sm font-medium">בעלת עסק</p>
+    <p id="testimonial-description" class="text-on-surface-variant text-sm leading-relaxed pt-1">כריס מספרת על העבודה איתי ועל הליווי שקיבלה במערכת המכירות בעסק.</p>
     </div>
     </div>
     <div class="section-cta">
@@ -1022,8 +1148,8 @@
     <div class="max-w-container-max mx-auto space-y-16">
     <div class="space-y-12">
     <div class="text-center space-y-4 max-w-3xl mx-auto">
-    <h2 class="text-3xl md:text-5xl font-bold">איך עובד מיפוי מערכת המכירות?</h2>
-    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">תהליך ממוקד של ארבעה מפגשים שבו אני מסתכל על מערכת המכירות מכמה זוויות: בעל העסק, מנהל רלוונטי ואנשים מהשטח, כדי להבין איפה הדברים באמת נתקעים ומה נכון לתקן קודם.</p>
+    <h2 class="text-3xl md:text-5xl font-bold">מתחילים במיפוי, כדי לא לתקן את הדבר הלא נכון</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">ב-4 מפגשים אני בודק את מערכת המכירות מכמה זוויות: בעל העסק, המנהל ואנשי המכירות. כך אפשר לראות מה קורה בפועל, מה חוזר על עצמו ובמה צריך לטפל קודם.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
     <div class="card-insight flex flex-col gap-4">
@@ -1043,36 +1169,51 @@
     </div>
     <div class="card-insight flex flex-col gap-4">
     <span class="card-number-bg" aria-hidden="true">04</span>
-    <h3 class="text-xl font-bold">אנליזה, מסקנות וכיוון פעולה</h3>
-    <p class="text-on-surface-variant text-sm leading-relaxed">נחבר את כל התמונה, נזהה את הדפוסים שחוזרים על עצמם ונגדיר מה נכון לתקן קודם.</p>
+    <h3 class="text-xl font-bold">ממצאים וסדר פעולות</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נחבר את כל מה שעלה, נזהה את הבעיות שחוזרות ונגדיר במה מטפלים קודם, מי צריך להיות מעורב ומה צריך למדוד.</p>
     </div>
     </div>
     </div>
     <div class="space-y-12">
     <div class="text-center space-y-4 max-w-3xl mx-auto">
-    <h2 class="text-3xl md:text-5xl font-bold">מה יוצא לך מהמיפוי?</h2>
-    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">בסוף המיפוי תדע איפה מערכת המכירות שלך נתקעת, מה שורש הבעיה, ומה הצעד הנכון לתקן קודם.</p>
+    <h2 class="text-3xl md:text-5xl font-bold">מה תקבל בסיום?</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">לא רשימת רעיונות כללית, אלא תמונה מסודרת של מערכת המכירות והחלטה ברורה על הצעדים הבאים.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
     <div class="card-insight flex flex-col gap-4">
     <span class="card-number-bg" aria-hidden="true">01</span>
-    <h3 class="text-xl font-bold">תמונת מצב ברורה</h3>
-    <p class="text-on-surface-variant text-sm leading-relaxed">תבין איך מערכת המכירות שלך באמת עובדת ביום יום, לא רק איך היא אמורה לעבוד.</p>
+    <h3 class="text-xl font-bold">מפה של מערכת המכירות</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">מי אחראי, מה קורה בפועל ואיפה לידים, לקוחות או עסקאות נופלים בדרך.</p>
     </div>
     <div class="card-insight flex flex-col gap-4">
     <span class="card-number-bg" aria-hidden="true">02</span>
-    <h3 class="text-xl font-bold">זיהוי שורש הבעיה</h3>
-    <p class="text-on-surface-variant text-sm leading-relaxed">נבין אם הבעיה נמצאת בגיוס, בהכשרה, במנהלים, בשגרה, בתהליך המכירה או בטיפול בלקוח.</p>
+    <h3 class="text-xl font-bold">הבעיות שדורשות טיפול</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">נראה אם הבעיה נמצאת בגיוס, בהכשרה, בניהול, בשגרות העבודה, בתהליך המכירה או בטיפול בלקוח.</p>
     </div>
     <div class="card-insight flex flex-col gap-4">
     <span class="card-number-bg" aria-hidden="true">03</span>
-    <h3 class="text-xl font-bold">תוכנית פעולה ממוקדת</h3>
-    <p class="text-on-surface-variant text-sm leading-relaxed">תקבל סדר עדיפויות ברור: מה צריך לתקן קודם, מה אפשר לדחות ומה לא שווה לגעת בו כרגע.</p>
+    <h3 class="text-xl font-bold">סדר פעולות ברור</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">במה מטפלים קודם, מה אפשר לדחות, מי צריך לקחת אחריות ומה נכון למדוד.</p>
     </div>
     <div class="card-insight flex flex-col gap-4">
     <span class="card-number-bg" aria-hidden="true">04</span>
-    <h3 class="text-xl font-bold">המלצה למסלול המשך</h3>
-    <p class="text-on-surface-variant text-sm leading-relaxed">נבין מה ההתערבות הנכונה לעסק: עבודה עם מנהל, סדנה לצוות, שיפור תסריט מכירה, בניית שגרה ניהולית או ליווי ממוקד.</p>
+    <h3 class="text-xl font-bold">המלצה להמשך</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">אם נדרש ליווי, נגדיר אם נכון לעבוד עם הבעלים, המנהל, צוות המכירות או עם כמה גורמים יחד.</p>
+    </div>
+    </div>
+    <div class="max-w-4xl mx-auto bg-on-background text-white rounded-3xl p-7 md:p-10 grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+    <div class="space-y-4">
+    <p class="text-primary font-bold">אחרי המיפוי</p>
+    <h2 class="text-3xl md:text-4xl font-bold">המיפוי מראה מה צריך לתקן. הליווי עוזר לגרום לזה לקרות.</h2>
+    <p class="text-white/75 text-lg leading-relaxed">אם העסק צריך עזרה ביישום, ממשיכים לליווי עם האנשים שאחראים לתוצאה. עובדים על שגרות ניהול, אחריות, טיפול בלידים, תהליך המכירה ומעקב אחר הביצוע.</p>
+    </div>
+    <div class="space-y-4">
+    <ul class="space-y-3 text-white/85">
+    <li class="flex gap-3"><span class="material-symbols-outlined text-primary" aria-hidden="true">check_circle</span><span>עבודה עם הבעלים והמנהלים</span></li>
+    <li class="flex gap-3"><span class="material-symbols-outlined text-primary" aria-hidden="true">check_circle</span><span>הטמעה עם צוות המכירות</span></li>
+    <li class="flex gap-3"><span class="material-symbols-outlined text-primary" aria-hidden="true">check_circle</span><span>מעקב אחר השינוי והתוצאות</span></li>
+    </ul>
+    <p class="text-sm text-white/65">לא כל עסק צריך את אותו ליווי. בונים את העבודה לפי מה שהמיפוי מגלה.</p>
     </div>
     </div>
     </div>
@@ -1084,32 +1225,32 @@
     <h2 class="text-3xl font-bold text-center">שאלות נפוצות</h2>
     <div class="space-y-4">
     <div class="accordion-item" id="faq1">
-    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq1">
+    <button type="button" class="w-full flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all text-right" aria-expanded="false" aria-controls="faq1-content">
     <span class="font-bold">למי המיפוי מתאים?</span>
-    <span class="material-symbols-outlined">expand_more</span>
-    </a>
-    <div class="accordion-content text-on-surface-variant text-sm">לעסקים פעילים עם צוות, מנהלים או אנשי מכירות, שיש להם מערכת מכירות קיימת אבל מרגישים שהיא לא מספיק יציבה או לא מספיק ברורה.</div>
+    <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+    </button>
+    <div class="accordion-content text-on-surface-variant text-sm" id="faq1-content">לעסקים פעילים עם צוות, מנהלים או אנשי מכירות, שיש להם מערכת מכירות קיימת אבל מרגישים שהיא לא מספיק יציבה או לא מספיק ברורה.</div>
     </div>
     <div class="accordion-item" id="faq2">
-    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq2">
+    <button type="button" class="w-full flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all text-right" aria-expanded="false" aria-controls="faq2-content">
     <span class="font-bold">מה קורה בשיחת ההתאמה הראשונית?</span>
-    <span class="material-symbols-outlined">expand_more</span>
-    </a>
-    <div class="accordion-content text-on-surface-variant text-sm">בשיחה של כ-20 דקות נבין מה העסק עושה, מה האתגר המרכזי במכירות, מי האנשים המעורבים במערכת והאם יש התאמה למיפוי.</div>
+    <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+    </button>
+    <div class="accordion-content text-on-surface-variant text-sm" id="faq2-content">בשיחה של כ-20 דקות נבין מה העסק עושה, מה האתגר המרכזי במכירות, מי האנשים המעורבים במערכת והאם יש התאמה למיפוי.</div>
     </div>
     <div class="accordion-item" id="faq3">
-    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq3">
+    <button type="button" class="w-full flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all text-right" aria-expanded="false" aria-controls="faq3-content">
     <span class="font-bold">מה כולל המיפוי עצמו?</span>
-    <span class="material-symbols-outlined">expand_more</span>
-    </a>
-    <div class="accordion-content text-on-surface-variant text-sm">המיפוי כולל ארבעה מפגשים: מיפוי עומק עם בעל העסק, ניתוח שטח עם מנהל או איש מפתח, בדיקת חוויית המכירה מול אנשי המכירות, ופגישת אנליזה עם מסקנות וכיוון פעולה.</div>
+    <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+    </button>
+    <div class="accordion-content text-on-surface-variant text-sm" id="faq3-content">המיפוי כולל 4 מפגשים: מיפוי עומק עם בעל העסק, ניתוח שטח עם מנהל או איש מפתח, בדיקת חוויית המכירה מול אנשי המכירות ופגישת סיכום עם ממצאים וסדר פעולות.</div>
     </div>
     <div class="accordion-item" id="faq4">
-    <a class="flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all" href="#faq4">
-    <span class="font-bold">זה תהליך שבא לשפוט את העסק?</span>
-    <span class="material-symbols-outlined">expand_more</span>
-    </a>
-    <div class="accordion-content text-on-surface-variant text-sm">לא. המטרה היא לא לחלק ציונים ולא להגיד לך איך לנהל. המטרה היא להסתכל מבחוץ על מערכת המכירות, להבין איפה הדברים נתקעים, ולבנות כיוון ברור להמשך.</div>
+    <button type="button" class="w-full flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all text-right" aria-expanded="false" aria-controls="faq4-content">
+    <span class="font-bold">מה קורה אם צריך עזרה גם ביישום?</span>
+    <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+    </button>
+    <div class="accordion-content text-on-surface-variant text-sm" id="faq4-content">אם המיפוי מראה שצריך ליווי, בונים מסלול שמתאים לעסק. אפשר לעבוד עם הבעלים, המנהל, צוות המכירות או עם כמה גורמים יחד.</div>
     </div>
     </div>
     </div>
@@ -1118,17 +1259,17 @@
     <section class="py-section-padding-desktop px-margin-mobile md:px-8 bg-surface-container-lowest" id="contact">
     <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
     <div class="space-y-8">
-    <h2 class="text-3xl md:text-5xl font-bold leading-tight">רוצה להבין איפה מערכת המכירות שלך נתקעת?</h2>
-    <p class="text-xl text-on-surface-variant">השאר פרטים ונקבע שיחת התאמה ראשונית של כ-20 דקות. נבין אם העסק מתאים למיפוי ומה נכון לבדוק לעומק.</p>
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight">בוא נבדוק איפה מערכת המכירות שלך נתקעת</h2>
+    <p class="text-xl text-on-surface-variant">השאר שם וטלפון. אחזור לשיחה של כ-20 דקות כדי להבין מה קורה בעסק ואם יש לי דרך לעזור.</p>
     <div class="flex items-center gap-4 p-4 glass-panel rounded-xl">
     <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
     <span class="material-symbols-outlined">security</span>
     </div>
-    <p class="text-sm font-medium">הפרטים שלך מאובטחים ולא יועברו לצד ג'.</p>
+    <p class="text-sm font-medium">בלי התחייבות. הפרטים נשארים אצלי ולא מועברים לצד ג'.</p>
     </div>
     </div>
     <div class="bg-surface border border-outline-variant/30 p-8 md:p-12 rounded-3xl shadow-2xl">
-    <div id="form-error-message" class="hidden mb-6 p-5 rounded-xl border border-error/40 bg-error/10 text-error text-center font-bold"></div>
+    <div id="form-error-message" class="hidden mb-6 p-5 rounded-xl border border-error/40 bg-error/10 text-error text-center font-bold" role="alert"></div>
     <form name="lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4" id="contact-form" novalidate>
     <input type="hidden" name="form-name" value="lead-form">
     <input type="hidden" name="subject" value="ליד חדש מדף הנחיתה - עומר ברוך">
@@ -1136,15 +1277,15 @@
     <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
     </p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all" name="full_name" placeholder="שם מלא" required type="text">
-    <input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all" dir="ltr" name="phone" placeholder="טלפון" required type="tel">
+    <label class="space-y-1.5"><span class="block text-sm font-bold">שם מלא</span><input autocomplete="name" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" name="full_name" placeholder="איך קוראים לך?" required type="text"></label>
+    <label class="space-y-1.5"><span class="block text-sm font-bold">טלפון</span><input autocomplete="tel" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-right" dir="ltr" inputmode="tel" name="phone" placeholder="050-0000000" required type="tel"></label>
     </div>
-    <input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all" name="business_name" placeholder="שם העסק" required type="text">
-    <textarea class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary outline-none transition-all h-32" name="main_problem" placeholder="מה הכי היית רוצה לפתור במכירות כרגע?" required></textarea>
-    <button class="w-full bg-primary text-on-primary py-5 rounded-xl font-bold text-xl hover:brightness-110 transition-all" type="submit">תאם שיחת התאמה ראשונית</button>
+    <label class="space-y-1.5"><span class="block text-sm font-bold">שם העסק <span class="font-normal text-on-surface-variant">(לא חובה)</span></span><input autocomplete="organization" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" name="business_name" placeholder="שם העסק" type="text"></label>
+    <label class="space-y-1.5"><span class="block text-sm font-bold">מה היית רוצה לשפר? <span class="font-normal text-on-surface-variant">(לא חובה)</span></span><textarea class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all h-28" name="main_problem" placeholder="אפשר לכתוב בכמה מילים"></textarea></label>
+    <button class="w-full bg-primary text-on-primary py-5 rounded-xl font-bold text-xl hover:brightness-110 transition-all disabled:opacity-60 disabled:cursor-wait" type="submit" data-default-text="רוצה לבדוק התאמה">רוצה לבדוק התאמה</button>
     </form>
-    <div id="form-success-message" class="hidden mt-6 p-5 rounded-xl border border-primary/40 bg-primary/10 text-on-surface text-center font-bold">
-    הפרטים התקבלו, תודה רבה. נחזור אליך בהקדם.
+    <div id="form-success-message" class="hidden mt-6 p-5 rounded-xl border border-primary/40 bg-primary/10 text-on-surface text-center font-bold" role="status" aria-live="polite">
+    הפרטים התקבלו. אחזור אליך בהקדם.
     </div>
     </div>
     </div>
@@ -1154,15 +1295,16 @@
     <button type="button" class="floating-cta-close" aria-label="סגור">×</button>
     <p class="floating-cta-title">רוצה להבין איפה מערכת המכירות נתקעת?</p>
     <p class="floating-cta-sub">שיחת התאמה ראשונית של כ-20 דקות.</p>
-    <a href="#contact" data-scroll-contact class="floating-cta-button">תאם שיחה</a>
+    <a href="#contact" data-scroll-contact class="floating-cta-button">בדיקת התאמה</a>
     </div>
     <!-- Footer -->
     <footer class="dark-section border-t border-outline-variant/20 py-12 px-margin-mobile md:px-8">
     <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
     <div class="text-center md:text-right">
-    <span class="font-display text-2xl font-extrabold tracking-tighter">
-    <span class="text-primary">עומר</span><span style="color:#dae3ee">- למכור באחריות</span>
-    </span>
+    <div class="inline-flex items-center gap-3">
+    <img alt="" aria-hidden="true" class="w-12 h-12 object-contain" src="./logo-mark.png">
+    <div class="text-right"><p class="text-primary text-2xl font-display font-bold leading-none">עומר ברוך</p><p class="text-sm mt-1" style="color:#c8bfab">ייעוץ וליווי למערכי מכירות</p></div>
+    </div>
     <p style="color:#c8bfab" class="text-sm mt-2">© 2024 Omer Sales Strategic Consulting. כל הזכויות שמורות.</p>
     </div>
     <div class="flex gap-8 font-medium" style="color:#c8bfab">
@@ -1198,31 +1340,19 @@
                 var errors = [];
                 var fullName = form.full_name.value.trim();
                 var phone = form.phone.value.trim();
-                var businessName = form.business_name.value.trim();
-                var mainProblem = form.main_problem.value.trim();
 
                 if (!fullName || fullName.length < 2) {
-                    errors.push('נא להזין שם מלא (לפחות 2 תווים).');
+                    errors.push('צריך למלא שם מלא (לפחות 2 תווים).');
                 }
 
                 if (!phone) {
-                    errors.push('נא להזין מספר טלפון.');
+                    errors.push('צריך למלא מספר טלפון.');
                 } else if (/[a-zA-Z\u0590-\u05FF]/.test(phone)) {
-                    errors.push('נא להזין מספר טלפון תקין ללא אותיות.');
+                    errors.push('מספר הטלפון לא תקין.');
                 } else if (!/^[0-9+\-\s()]+$/.test(phone)) {
-                    errors.push('נא להזין מספר טלפון תקין ללא אותיות.');
+                    errors.push('מספר הטלפון לא תקין.');
                 } else if (phone.replace(/\D/g, '').length < 9) {
-                    errors.push('נא להזין מספר טלפון תקין ללא אותיות.');
-                }
-
-                if (!businessName) {
-                    errors.push('נא להזין שם עסק.');
-                }
-
-                if (!mainProblem) {
-                    errors.push('נא לפרט בקצרה מה האתגר המרכזי כרגע.');
-                } else if (mainProblem.length < 10) {
-                    errors.push('נא לפרט בקצרה מה האתגר המרכזי כרגע.');
+                    errors.push('מספר הטלפון לא תקין.');
                 }
 
                 return errors;
@@ -1245,6 +1375,7 @@
                     var submitButton = contactForm.querySelector('button[type="submit"]');
                     if (submitButton) {
                         submitButton.disabled = true;
+                        submitButton.textContent = 'שולח...';
                     }
 
                     fetch('/', {
@@ -1269,6 +1400,7 @@
                     .finally(function () {
                         if (submitButton) {
                             submitButton.disabled = false;
+                            submitButton.textContent = submitButton.dataset.defaultText || 'רוצה לבדוק התאמה';
                         }
                     });
                 });
@@ -1389,7 +1521,7 @@
                 var faqItems = faqSection.querySelectorAll('.accordion-item');
                 faqItems.forEach(function (item) {
                     item.classList.remove('active');
-                    var trigger = item.querySelector('a[href^="#faq"]');
+                    var trigger = item.querySelector('button[aria-controls]');
                     if (!trigger) {
                         return;
                     }
@@ -1398,9 +1530,14 @@
                         var isOpen = item.classList.contains('active');
                         faqItems.forEach(function (other) {
                             other.classList.remove('active');
+                            var otherTrigger = other.querySelector('button[aria-controls]');
+                            if (otherTrigger) {
+                                otherTrigger.setAttribute('aria-expanded', 'false');
+                            }
                         });
                         if (!isOpen) {
                             item.classList.add('active');
+                            trigger.setAttribute('aria-expanded', 'true');
                         }
                     });
                 });
