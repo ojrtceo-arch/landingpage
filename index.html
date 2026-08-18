@@ -1407,11 +1407,10 @@
     </div>
     <div class="bg-surface border border-outline-variant/30 p-8 md:p-12 rounded-3xl shadow-2xl">
     <div id="form-error-message" class="hidden mb-6 p-5 rounded-xl border border-error/40 bg-error/10 text-error text-center font-bold" role="alert"></div>
-    <form name="lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4" id="contact-form" novalidate>
-    <input type="hidden" name="form-name" value="lead-form">
-    <input type="hidden" name="subject" value="ליד חדש מדף הנחיתה - עומר ברוך">
-    <p class="hidden">
-    <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+    <form name="lead-form" method="POST" action="/api/leads" class="space-y-4" id="contact-form" novalidate>
+    <input type="hidden" name="form_started_at" id="form-started-at" value="">
+    <p class="hidden" aria-hidden="true">
+    <label>אין למלא שדה זה: <input name="website" tabindex="-1" autocomplete="off"></label>
     </p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <label class="space-y-1.5"><span class="block text-sm font-bold">שם מלא</span><input autocomplete="name" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" name="full_name" placeholder="איך קוראים לך?" required type="text"></label>
@@ -1496,6 +1495,11 @@
             }
 
             if (contactForm && errorMessage && successMessage) {
+                var formStartedAt = document.getElementById('form-started-at');
+                if (formStartedAt) {
+                    formStartedAt.value = String(Date.now());
+                }
+
                 contactForm.addEventListener('submit', function (event) {
                     event.preventDefault();
                     var errors = validateContactForm(contactForm);
@@ -1515,22 +1519,37 @@
                         submitButton.textContent = 'שולח...';
                     }
 
-                    fetch('/', {
+                    fetch('/api/leads', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: new URLSearchParams(formData).toString()
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            fullName: formData.get('full_name'),
+                            phone: formData.get('phone'),
+                            businessName: formData.get('business_name'),
+                            message: formData.get('main_problem'),
+                            website: formData.get('website'),
+                            formStartedAt: formData.get('form_started_at')
+                        })
                     })
                     .then(function (response) {
-                        if (!response.ok) {
-                            throw new Error('Form submission failed');
-                        }
+                        return response.json().catch(function () { return {}; }).then(function (data) {
+                            if (!response.ok) {
+                                throw new Error(data.error || 'Form submission failed');
+                            }
+                            return data;
+                        });
+                    })
+                    .then(function () {
                         successMessage.classList.remove('hidden');
                         errorMessage.classList.add('hidden');
                         contactForm.reset();
+                        if (formStartedAt) {
+                            formStartedAt.value = String(Date.now());
+                        }
                         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     })
-                    .catch(function () {
-                        errorMessage.textContent = 'הייתה בעיה בשליחת הפרטים. אפשר לנסות שוב או לפנות בוואטסאפ.';
+                    .catch(function (error) {
+                        errorMessage.textContent = error.message || 'הייתה בעיה בשליחת הפרטים. אפשר לנסות שוב או לפנות בוואטסאפ.';
                         errorMessage.classList.remove('hidden');
                         errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     })
