@@ -676,6 +676,53 @@
                 background: #000;
                 border: 1px solid rgba(184, 138, 46, 0.22);
             }
+            .testimonial-video-wrap {
+                position: relative;
+                border-radius: 16px;
+                overflow: hidden;
+                background: #111827;
+                box-shadow: 0 10px 24px rgba(17, 24, 39, 0.12);
+            }
+            .testimonial-video-wrap .testimonial-video {
+                display: block;
+            }
+            .testimonial-play-cue {
+                position: absolute;
+                inset: 50% auto auto 50%;
+                transform: translate(-50%, -50%);
+                width: 64px;
+                height: 64px;
+                border-radius: 999px;
+                display: grid;
+                place-items: center;
+                color: #FFFFFF;
+                background: rgba(184, 138, 46, 0.94);
+                border: 3px solid rgba(255, 255, 255, 0.9);
+                box-shadow: 0 8px 24px rgba(17, 24, 39, 0.32);
+                pointer-events: none;
+                transition: opacity 0.2s ease, transform 0.2s ease;
+            }
+            .testimonial-play-cue .material-symbols-outlined {
+                font-size: 36px;
+            }
+            .testimonial-video-wrap:hover .testimonial-play-cue {
+                transform: translate(-50%, -50%) scale(1.06);
+            }
+            .testimonial-video-wrap.is-playing .testimonial-play-cue {
+                opacity: 0;
+            }
+            .testimonial-desktop-card:has(video[src="./guy.mp4"]),
+            .testimonial-tab[data-video="./guy.mp4"] { order: 1; }
+            .testimonial-desktop-card:has(video[src="./anya.mp4"]),
+            .testimonial-tab[data-video="./anya.mp4"] { order: 2; }
+            .testimonial-desktop-card:has(video[src="./tal.mp4"]),
+            .testimonial-tab[data-video="./tal.mp4"] { order: 3; }
+            .testimonial-desktop-card:has(video[src="./tamir.mp4"]),
+            .testimonial-tab[data-video="./tamir.mp4"] { order: 4; }
+            .testimonial-desktop-card:has(video[src="./eitan.mp4"]),
+            .testimonial-tab[data-video="./eitan.mp4"] { order: 5; }
+            .testimonial-desktop-card:has(video[src="./kris.mp4"]),
+            .testimonial-tab[data-video="./kris.mp4"] { order: 6; }
             .testimonial-main-wrap {
                 width: 100%;
                 max-width: 320px;
@@ -1175,7 +1222,7 @@
     </div>
     <div class="testimonials-desktop-grid hidden md:grid">
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./kris.mp4" controls playsinline preload="none"></video>
+    <div class="testimonial-video-wrap"><video class="testimonial-video" src="./kris.mp4" poster="./kris-poster.webp" controls playsinline preload="metadata"></video><span class="testimonial-play-cue" aria-hidden="true"><span class="material-symbols-outlined">play_arrow</span></span></div>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">כריס</p>
     <p class="text-primary text-sm font-medium">בעלת עסק</p>
@@ -1183,7 +1230,7 @@
     </div>
     </div>
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./eitan.mp4" controls playsinline preload="none"></video>
+    <div class="testimonial-video-wrap"><video class="testimonial-video" src="./eitan.mp4" poster="./eitan-poster.webp" controls playsinline preload="metadata"></video><span class="testimonial-play-cue" aria-hidden="true"><span class="material-symbols-outlined">play_arrow</span></span></div>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">איתן</p>
     <p class="text-primary text-sm font-medium">בעל עסק</p>
@@ -1191,7 +1238,7 @@
     </div>
     </div>
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./anya.mp4" controls playsinline preload="none"></video>
+    <div class="testimonial-video-wrap"><video class="testimonial-video" src="./anya.mp4" poster="./anya-poster.webp" controls playsinline preload="metadata"></video><span class="testimonial-play-cue" aria-hidden="true"><span class="material-symbols-outlined">play_arrow</span></span></div>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">אניה</p>
     <p class="text-primary text-sm font-medium">מנהלת שעבדה תחתיי</p>
@@ -1199,7 +1246,7 @@
     </div>
     </div>
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./guy.mp4" controls playsinline preload="none"></video>
+    <div class="testimonial-video-wrap"><video class="testimonial-video" src="./guy.mp4" poster="./guy-poster.webp" controls playsinline preload="metadata"></video><span class="testimonial-play-cue" aria-hidden="true"><span class="material-symbols-outlined">play_arrow</span></span></div>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">גיא</p>
     <p class="text-primary text-sm font-medium">מנהל שעבד תחתיי</p>
@@ -1207,7 +1254,7 @@
     </div>
     </div>
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./tal.mp4" controls playsinline preload="none"></video>
+    <div class="testimonial-video-wrap"><video class="testimonial-video" src="./tal.mp4" poster="./tal-poster.webp" controls playsinline preload="metadata"></video><span class="testimonial-play-cue" aria-hidden="true"><span class="material-symbols-outlined">play_arrow</span></span></div>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">טל</p>
     <p class="text-primary text-sm font-medium">אשת מכירות שעבדה תחתיי</p>
@@ -1215,7 +1262,7 @@
     </div>
     </div>
     <div class="testimonial-desktop-card">
-    <video class="testimonial-video" src="./tamir.mp4" controls playsinline preload="none"></video>
+    <div class="testimonial-video-wrap"><video class="testimonial-video" src="./tamir.mp4" poster="./tamir-poster.webp" controls playsinline preload="metadata"></video><span class="testimonial-play-cue" aria-hidden="true"><span class="material-symbols-outlined">play_arrow</span></span></div>
     <div class="space-y-1 text-center">
     <p class="font-bold text-on-surface">תמיר</p>
     <p class="text-primary text-sm font-medium">איש מכירות שעבד תחתיי</p>
@@ -1233,7 +1280,7 @@
     <button type="button" class="testimonial-tab" data-testimonial-button data-video="./tamir.mp4" data-name="תמיר" data-role="איש מכירות שעבד תחתיי" data-description="תמיר מספר על העבודה איתי, על תהליך המכירה, הליווי בשטח והדרך שבה עבדנו יחד.">תמיר</button>
     </div>
     <div class="testimonial-main-wrap">
-    <video id="testimonial-main-video-mobile" class="testimonial-video" src="./kris.mp4" controls playsinline preload="none"></video>
+    <div class="testimonial-video-wrap"><video id="testimonial-main-video-mobile" class="testimonial-video" src="./guy.mp4" poster="./guy-poster.webp" controls playsinline preload="metadata"></video><span class="testimonial-play-cue" aria-hidden="true"><span class="material-symbols-outlined">play_arrow</span></span></div>
     </div>
     <div class="space-y-2 text-center">
     <p id="testimonial-name" class="font-bold text-2xl text-on-surface">כריס</p>
@@ -1653,12 +1700,23 @@
             var testimonialRole = document.getElementById('testimonial-role');
             var testimonialDescription = document.getElementById('testimonial-description');
 
+            document.querySelectorAll('.testimonial-video-wrap .testimonial-video').forEach(function (testimonialClip) {
+                testimonialClip.addEventListener('play', function () {
+                    var wrap = testimonialClip.closest('.testimonial-video-wrap');
+                    if (wrap) wrap.classList.add('is-playing');
+                });
+            });
+
             if (testimonialVideo && testimonialButtons.length && testimonialName && testimonialRole && testimonialDescription) {
                 testimonialButtons.forEach(function (button) {
                     button.addEventListener('click', function () {
                         testimonialVideo.pause();
                         testimonialVideo.src = button.dataset.video;
+                        testimonialVideo.poster = button.dataset.video.replace('.mp4', '-poster.webp');
                         testimonialVideo.load();
+
+                        var videoWrap = testimonialVideo.closest('.testimonial-video-wrap');
+                        if (videoWrap) videoWrap.classList.remove('is-playing');
 
                         testimonialName.textContent = button.dataset.name;
                         testimonialRole.textContent = button.dataset.role;
@@ -1670,6 +1728,9 @@
                         button.classList.add('active');
                     });
                 });
+
+                var firstTestimonial = testimonialMobileSwitcher.querySelector('[data-video="./guy.mp4"]');
+                if (firstTestimonial) firstTestimonial.click();
             }
 
             var whatsappReviewDialog = document.getElementById('whatsapp-review-dialog');
