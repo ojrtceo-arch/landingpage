@@ -11,8 +11,6 @@
     <meta property="og:locale" content="he_IL">
     <meta property="og:image" content="https://www.omerbaruch.com/logo-mark.png">
     <link rel="canonical" href="https://www.omerbaruch.com/">
-    <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
-    <script defer src="/_vercel/insights/script.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&amp;family=Heebo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -1548,9 +1546,6 @@
             function trackEvent(name, properties) {
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push(Object.assign({ event: name }, properties || {}));
-                if (typeof window.va === 'function') {
-                    window.va('event', { name: name, data: properties || {} });
-                }
             }
 
             var menuBtn = document.getElementById('mobile-menu-btn');
