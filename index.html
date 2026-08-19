@@ -7,7 +7,12 @@
     <meta property="og:title" content="עומר ברוך | בונים מנהלי מכירות שיודעים להחזיק את המערך">
     <meta property="og:description" content="ליווי חודשי לבעל העסק ולמנהלי המכירות, עם כלים, שגרות ניהול וטריינינג לצוות לפי הצורך.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="./logo-mark.png">
+    <meta property="og:url" content="https://www.omerbaruch.com/">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:image" content="https://www.omerbaruch.com/logo-mark.png">
+    <link rel="canonical" href="https://www.omerbaruch.com/">
+    <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+    <script defer src="/_vercel/insights/script.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&amp;family=Heebo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -647,21 +652,35 @@
                 filter: brightness(1.08);
             }
             @media (max-width: 767px) {
+                .py-section-padding-desktop {
+                    padding-top: 4.5rem;
+                    padding-bottom: 4.5rem;
+                }
                 .floating-cta {
                     width: calc(100% - 24px);
                     left: 12px;
                     bottom: 10px;
                     max-width: none;
-                    padding: 8px;
+                    padding: 6px 6px 6px 42px;
                     border-radius: 14px;
                 }
                 .floating-cta-title,
-                .floating-cta-sub,
-                .floating-cta-close {
+                .floating-cta-sub {
                     display: none;
                 }
+                .floating-cta-close {
+                    display: grid;
+                    place-items: center;
+                    top: 50%;
+                    left: 8px;
+                    transform: translateY(-50%);
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 8px;
+                    background: #F5F2EB;
+                }
                 .floating-cta-button {
-                    min-height: 48px;
+                    min-height: 44px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -1090,15 +1109,18 @@
     </div>
     </div>
     </div>
-    <div class="order-2 md:col-start-2 md:row-start-1 md:row-span-4 relative flex justify-center md:items-center w-full">
+    <div class="order-3 md:order-2 md:col-start-2 md:row-start-1 md:row-span-4 relative flex justify-center md:items-center w-full">
     <div class="bg-surface-container-highest rounded-2xl border border-outline-variant/30 video-card flex items-center justify-center">
-    <video id="diagnostic-video" class="diagnostic-video" src="./videoofme.mp4" autoplay muted loop playsinline preload="metadata" controls></video>
+    <video id="diagnostic-video" class="diagnostic-video" src="./videoofme-optimized.mp4" poster="./videoofme-poster.webp" autoplay muted loop playsinline preload="metadata" controls></video>
     <button type="button" class="video-sound-toggle" id="video-sound-toggle" aria-label="הפעל סאונד">הפעל סאונד</button>
     </div>
     </div>
-    <div class="order-3 md:col-start-1 md:row-start-3 flex flex-col sm:flex-row gap-4 w-full">
-    <a class="bg-primary text-on-primary px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all text-center leading-snug" data-scroll-contact href="#contact">בדיקת התאמה לליווי חודשי</a>
-    <a class="border border-outline-variant text-on-surface px-5 py-3 rounded-lg font-bold text-base hover:bg-surface-bright transition-all flex items-center justify-center gap-2 w-fit mx-auto sm:mx-0" href="https://wa.me/0509001714" rel="noopener noreferrer" target="_blank"><svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.394 0 12.03c0 2.12.554 4.189 1.605 6.04L0 24l6.117-1.605a11.803 11.803 0 005.925 1.586h.005c6.631 0 12.026-5.396 12.033-12.034a11.846 11.846 0 00-3.453-8.492z"></path></svg> דבר איתי בוואטסאפ</a>
+    <div class="order-2 md:order-3 md:col-start-1 md:row-start-3 flex flex-col sm:flex-row gap-3 w-full">
+    <div class="flex-1">
+    <a class="block bg-primary text-on-primary px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all text-center leading-snug" data-scroll-contact href="#contact">שיחת מיפוי ניהולית — 20 דקות</a>
+    <p class="text-xs text-on-surface-variant text-center mt-2">נזהה את צוואר הבקבוק הניהולי ונבדוק אם הליווי מתאים. בלי התחייבות.</p>
+    </div>
+    <a class="border border-outline-variant text-on-surface px-5 py-3 rounded-lg font-bold text-base hover:bg-surface-bright transition-all flex items-center justify-center gap-2 w-fit mx-auto sm:mx-0" data-track="whatsapp" href="https://wa.me/972509001714" rel="noopener noreferrer" target="_blank"><svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.394 0 12.03c0 2.12.554 4.189 1.605 6.04L0 24l6.117-1.605a11.803 11.803 0 005.925 1.586h.005c6.631 0 12.026-5.396 12.033-12.034a11.846 11.846 0 00-3.453-8.492z"></path></svg> WhatsApp</a>
     </div>
     <div class="order-4 md:hidden grid grid-cols-3 gap-2 w-full">
     <div class="glass-panel border border-primary/20 rounded-lg px-2 py-2.5 md:px-4 md:py-4 text-center">
@@ -1214,7 +1236,7 @@
     </div>
     </section>
     <!-- Testimonials -->
-    <section class="py-section-padding-desktop bg-surface-container-low px-margin-mobile md:px-8" id="testimonials">
+    <section class="py-section-padding-desktop bg-surface-container-low px-margin-mobile md:px-8" id="testimonials" data-floating-cta-blocker>
     <div class="max-w-container-max mx-auto space-y-12">
     <div class="text-center space-y-4 max-w-3xl mx-auto">
     <h2 class="text-3xl md:text-5xl font-bold">מנהלים ובעלי עסקים שליוויתי מספרים</h2>
@@ -1296,7 +1318,7 @@
     </div>
     </section>
     <!-- Anonymous WhatsApp Testimonials -->
-    <section class="whatsapp-reviews py-section-padding-desktop bg-surface-container-lowest px-margin-mobile md:px-8" id="whatsapp-reviews">
+    <section class="whatsapp-reviews py-section-padding-desktop bg-surface-container-lowest px-margin-mobile md:px-8" id="whatsapp-reviews" data-floating-cta-blocker>
     <div class="max-w-container-max mx-auto space-y-10">
     <div class="text-center space-y-4 max-w-3xl mx-auto">
     <p class="text-primary font-bold tracking-wide">מילים שנשלחו מהשטח</p>
@@ -1332,36 +1354,37 @@
     <div class="max-w-container-max mx-auto space-y-16">
     <div class="space-y-12">
     <div class="text-center space-y-4 max-w-3xl mx-auto">
-    <h2 class="text-3xl md:text-5xl font-bold">איך נראה ליווי ניהולי חודשי?</h2>
-    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">בונים היקף שעות חודשי שמתאים לארגון וליעדים. רוב העבודה נעשית עם בעל העסק ומנהלי המכירות; עבודה עם הצוות נכנסת כטריינינג ממוקד כשיש צורך מקצועי ברור.</p>
+    <p class="text-primary font-bold tracking-wide">מתחילים מסודר, לא עם הרצאה כללית</p>
+    <h2 class="text-3xl md:text-5xl font-bold">כך נראים 30 הימים הראשונים</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">החודש הראשון נועד להבין מה באמת עוצר את המערך, להחליט מה משתנה ברמת הניהול ולהתחיל להטמיע שגרת עבודה שמתאימה לארגון.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
     <div class="card-insight flex flex-col gap-4">
     <span class="card-number-bg" aria-hidden="true">01</span>
-    <h3 class="text-xl font-bold">פגישת הנהלה ותעדוף</h3>
-    <p class="text-on-surface-variant text-sm leading-relaxed">עובדים עם בעל העסק על מטרות, מבנה המערך, ביצועים, חסמים ניהוליים וסדרי העדיפויות לחודש הקרוב.</p>
+    <h3 class="text-xl font-bold">ממפים את המערך</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">מבינים עם בעל העסק איך המערך בנוי, איפה האחריות נתקעת, אילו בעיות חוזרות ומה המנהלים עדיין לא מחזיקים בעצמם.</p>
     </div>
     <div class="card-insight flex flex-col gap-4">
     <span class="card-number-bg" aria-hidden="true">02</span>
-    <h3 class="text-xl font-bold">ליווי ופיתוח המנהלים</h3>
-    <p class="text-on-surface-variant text-sm leading-relaxed">פגישות קבועות על ניהול אנשים, יעדים, ישיבות צוות, משוב, אחריות וטיפול במצבים אמיתיים שהמנהל פוגש בשטח.</p>
+    <h3 class="text-xl font-bold">מגדירים יעד ניהולי</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">בוחרים את השינוי החשוב ביותר להתחלה: ישיבות, יעדים, מעקב, משוב, אחריות או טיפול בביצועים.</p>
     </div>
     <div class="card-insight flex flex-col gap-4">
     <span class="card-number-bg" aria-hidden="true">03</span>
-    <h3 class="text-xl font-bold">בניית כלי ושגרות ניהול</h3>
-    <p class="text-on-surface-variant text-sm leading-relaxed">מייצרים תבניות ישיבה, כלי בקרה, מעקב יעדים, תהליכי משוב ודרך עבודה שהמנהלים יכולים להמשיך להפעיל בעצמם.</p>
+    <h3 class="text-xl font-bold">בונים תוכנית ושגרה</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">מתאימים את היקף השעות, המפגשים וכלי העבודה לגודל המערך, למספר המנהלים וליעד שנבחר.</p>
     </div>
     <div class="card-insight flex flex-col gap-4">
     <span class="card-number-bg" aria-hidden="true">04</span>
-    <h3 class="text-xl font-bold">טריינינג לצוות לפי הצורך</h3>
-    <p class="text-on-surface-variant text-sm leading-relaxed">הדרכות, סימולציות ותרגולים ממוקדים בנושאים שעולים מתוכנית העבודה. המנהל נשאר מי שמחזיק את היישום ביום־יום.</p>
+    <h3 class="text-xl font-bold">מתחילים ליישם בשטח</h3>
+    <p class="text-on-surface-variant text-sm leading-relaxed">עובדים על דילמות אמיתיות עם המנהלים, מטמיעים את השגרה ומשלבים טריינינג לצוות רק כשהוא משרת את היעד.</p>
     </div>
     </div>
     </div>
     <div class="space-y-12">
     <div class="text-center space-y-4 max-w-3xl mx-auto">
-    <h2 class="text-3xl md:text-5xl font-bold">מה משתנה לאורך הליווי?</h2>
-    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">המטרה אינה לייצר תלות ביועץ, אלא לבנות בתוך הארגון שכבת ניהול שיודעת לקבל אחריות, להוביל אנשים ולשמור על ביצוע לאורך זמן.</p>
+    <h2 class="text-3xl md:text-5xl font-bold">מה הליווי נועד לבנות לאורך זמן?</h2>
+    <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">לא הבטחת קסם בחודש, אלא שכבת ניהול פנימית שלוקחת אחריות, מובילה אנשים ושומרת על ביצוע לאורך זמן.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
     <div class="card-insight flex flex-col gap-4">
@@ -1404,7 +1427,7 @@
     </div>
     </section>
     <!-- FAQ Section -->
-    <section class="py-section-padding-desktop bg-surface-container px-margin-mobile md:px-8" id="faq">
+    <section class="py-section-padding-desktop bg-surface-container px-margin-mobile md:px-8" id="faq" data-floating-cta-blocker>
     <div class="max-w-3xl mx-auto space-y-8">
     <h2 class="text-3xl font-bold text-center">שאלות נפוצות</h2>
     <div class="space-y-4">
@@ -1436,11 +1459,32 @@
     </button>
     <div class="accordion-content text-on-surface-variant text-sm" id="faq4-content">לא. אני לא מחליף את מנהל המכירות ולא מנהל את הצוות ביום־יום. העבודה הצמודה היא עם בעל העסק והמנהלים; לצוות אני מעביר טריינינג ותרגולים כשזה נדרש.</div>
     </div>
+    <div class="accordion-item" id="faq5">
+    <button type="button" class="w-full flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all text-right" aria-expanded="false" aria-controls="faq5-content">
+    <span class="font-bold">תוך כמה זמן מתחילים לראות שינוי?</span>
+    <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+    </button>
+    <div class="accordion-content text-on-surface-variant text-sm" id="faq5-content">כבר בשבועות הראשונים אפשר להתחיל לייצר בהירות, סדר ושגרות עבודה. שינוי יציב בהתנהלות ובביצועים דורש הטמעה עקבית, והקצב תלוי בנקודת הפתיחה ובמעורבות של בעל העסק והמנהלים.</div>
+    </div>
+    <div class="accordion-item" id="faq6">
+    <button type="button" class="w-full flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all text-right" aria-expanded="false" aria-controls="faq6-content">
+    <span class="font-bold">האם הליווי מתקיים מרחוק או בבית העסק?</span>
+    <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+    </button>
+    <div class="accordion-content text-on-surface-variant text-sm" id="faq6-content">מבנה העבודה נקבע לפי מיקום הארגון, היקף המערך וסוג התהליך. בשיחת המיפוי נבדוק איזה שילוב מאפשר לעבוד באופן רציף ויעיל עם בעל העסק והמנהלים.</div>
+    </div>
+    <div class="accordion-item" id="faq7">
+    <button type="button" class="w-full flex justify-between items-center p-6 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary transition-all text-right" aria-expanded="false" aria-controls="faq7-content">
+    <span class="font-bold">מה משך הליווי ומה רמת ההתחייבות?</span>
+    <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+    </button>
+    <div class="accordion-content text-on-surface-variant text-sm" id="faq7-content">משך התהליך והיקף השעות נגזרים מהיעדים, מספר המנהלים ונקודת הפתיחה. שיחת המיפוי הראשונית אינה מחייבת; אם יש התאמה, תקבלו הצעה ברורה עם היקף, דרך עבודה וציפיות לפני שמתחילים.</div>
+    </div>
     </div>
     </div>
     </section>
     <!-- Contact Form -->
-    <section class="py-section-padding-desktop px-margin-mobile md:px-8 bg-surface-container-lowest" id="contact">
+    <section class="py-section-padding-desktop px-margin-mobile md:px-8 bg-surface-container-lowest" id="contact" data-floating-cta-blocker>
     <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
     <div class="space-y-8">
     <h2 class="text-3xl md:text-5xl font-bold leading-tight">בוא נבדוק אם ליווי ניהולי חודשי מתאים למערך שלך</h2>
@@ -1449,13 +1493,15 @@
     <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
     <span class="material-symbols-outlined">security</span>
     </div>
-    <p class="text-sm font-medium">בלי התחייבות. הפרטים נשארים אצלי ולא מועברים לצד ג'.</p>
+    <p class="text-sm font-medium">בלי התחייבות. הפרטים משמשים רק לחזרה אליך ונשמרים באופן מאובטח במערכות Google ו־Vercel.</p>
     </div>
     </div>
     <div class="bg-surface border border-outline-variant/30 p-8 md:p-12 rounded-3xl shadow-2xl">
     <div id="form-error-message" class="hidden mb-6 p-5 rounded-xl border border-error/40 bg-error/10 text-error text-center font-bold" role="alert"></div>
     <form name="lead-form" method="POST" action="/api/leads" class="space-y-4" id="contact-form" novalidate>
     <input type="hidden" name="form_started_at" id="form-started-at" value="">
+    <input type="hidden" name="lead_source" id="lead-source" value="דף נחיתה">
+    <input type="hidden" name="page_url" id="page-url" value="">
     <p class="hidden" aria-hidden="true">
     <label>אין למלא שדה זה: <input name="website" tabindex="-1" autocomplete="off"></label>
     </p>
@@ -1488,18 +1534,25 @@
     <img alt="" aria-hidden="true" class="w-12 h-12 object-contain" src="./logo-mark.png">
     <div class="text-right"><p class="text-primary text-2xl font-display font-bold leading-none">עומר ברוך</p><p class="text-sm mt-1" style="color:#c8bfab">ליווי ופיתוח מנהלי מכירות</p></div>
     </div>
-    <p style="color:#c8bfab" class="text-sm mt-2">© 2024 Omer Sales Strategic Consulting. כל הזכויות שמורות.</p>
+    <p style="color:#c8bfab" class="text-sm mt-2">© 2026 Omer Sales Strategic Consulting. כל הזכויות שמורות.</p>
     </div>
     <div class="flex gap-8 font-medium" style="color:#c8bfab">
-    <a class="hover:text-primary transition-all" href="#contact">פרטיות</a>
-    <a class="hover:text-primary transition-all" href="#contact">תקנון</a>
-    <a class="hover:text-primary transition-all" href="#contact">LinkedIn</a>
-    <a class="hover:text-primary transition-all" href="https://wa.me/0509001714" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+    <a class="hover:text-primary transition-all" href="/privacy.html">פרטיות</a>
+    <a class="hover:text-primary transition-all" href="/terms.html">תנאי שימוש</a>
+    <a class="hover:text-primary transition-all" data-track="whatsapp" href="https://wa.me/972509001714" rel="noopener noreferrer" target="_blank">WhatsApp</a>
     </div>
     </div>
     </footer>
     <script>
         (function () {
+            function trackEvent(name, properties) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push(Object.assign({ event: name }, properties || {}));
+                if (typeof window.va === 'function') {
+                    window.va('event', { name: name, data: properties || {} });
+                }
+            }
+
             var menuBtn = document.getElementById('mobile-menu-btn');
             var mobileNav = document.getElementById('mobile-nav');
             if (menuBtn && mobileNav) {
@@ -1518,6 +1571,30 @@
             var contactForm = document.getElementById('contact-form');
             var errorMessage = document.getElementById('form-error-message');
             var successMessage = document.getElementById('form-success-message');
+            var leadSourceField = document.getElementById('lead-source');
+            var pageUrlField = document.getElementById('page-url');
+
+            var query = new URLSearchParams(window.location.search);
+            var attribution = {
+                source: query.get('utm_source') || '',
+                medium: query.get('utm_medium') || '',
+                campaign: query.get('utm_campaign') || ''
+            };
+            if (attribution.source || attribution.medium || attribution.campaign) {
+                sessionStorage.setItem('landingAttribution', JSON.stringify(attribution));
+            } else {
+                try {
+                    attribution = JSON.parse(sessionStorage.getItem('landingAttribution') || '{}');
+                } catch (e) {
+                    attribution = {};
+                }
+            }
+            var sourceParts = [attribution.source, attribution.medium, attribution.campaign].filter(Boolean);
+            if (!sourceParts.length && document.referrer) {
+                try { sourceParts.push(new URL(document.referrer).hostname); } catch (e) {}
+            }
+            if (leadSourceField) leadSourceField.value = sourceParts.length ? 'דף נחיתה · ' + sourceParts.join(' · ') : 'דף נחיתה · ישיר';
+            if (pageUrlField) pageUrlField.value = window.location.href.slice(0, 500);
 
             function validateContactForm(form) {
                 var errors = [];
@@ -1542,6 +1619,13 @@
             }
 
             if (contactForm && errorMessage && successMessage) {
+                var formStartedTracked = false;
+                contactForm.addEventListener('focusin', function () {
+                    if (!formStartedTracked) {
+                        formStartedTracked = true;
+                        trackEvent('lead_form_start');
+                    }
+                });
                 var formStartedAt = document.getElementById('form-started-at');
                 if (formStartedAt) {
                     formStartedAt.value = String(Date.now());
@@ -1575,7 +1659,9 @@
                             businessName: formData.get('business_name'),
                             message: formData.get('main_problem'),
                             website: formData.get('website'),
-                            formStartedAt: formData.get('form_started_at')
+                            formStartedAt: formData.get('form_started_at'),
+                            leadSource: formData.get('lead_source'),
+                            pageUrl: formData.get('page_url')
                         })
                     })
                     .then(function (response) {
@@ -1587,13 +1673,8 @@
                         });
                     })
                     .then(function () {
-                        successMessage.classList.remove('hidden');
-                        errorMessage.classList.add('hidden');
-                        contactForm.reset();
-                        if (formStartedAt) {
-                            formStartedAt.value = String(Date.now());
-                        }
-                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        trackEvent('lead_form_submit', { source: leadSourceField ? leadSourceField.value : 'דף נחיתה' });
+                        window.location.assign('/thank-you.html');
                     })
                     .catch(function (error) {
                         errorMessage.textContent = error.message || 'הייתה בעיה בשליחת הפרטים. אפשר לנסות שוב או לפנות בוואטסאפ.';
@@ -1611,6 +1692,7 @@
             document.querySelectorAll('a[href="#contact"], button[data-scroll-contact]').forEach(function(el) {
                 el.addEventListener('click', function(e) {
                     e.preventDefault();
+                    trackEvent('contact_cta_click', { label: el.textContent.trim().slice(0, 80) });
                     var target = document.getElementById('contact');
                     if (target) {
                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1622,6 +1704,13 @@
 
             if (video) {
                 video.muted = true;
+                var heroVideoTracked = false;
+                video.addEventListener('play', function () {
+                    if (!heroVideoTracked) {
+                        heroVideoTracked = true;
+                        trackEvent('hero_video_play');
+                    }
+                });
                 var playPromise = video.play();
                 if (playPromise && typeof playPromise.catch === 'function') {
                     playPromise.catch(function () {});
@@ -1646,6 +1735,7 @@
             var floatingCta = document.getElementById('floating-cta');
             var testimonialsSection = document.getElementById('testimonials');
             var contactSection = document.getElementById('contact');
+            var floatingBlockers = document.querySelectorAll('[data-floating-cta-blocker]');
             var floatingShown = false;
 
             function updateFloatingCta() {
@@ -1661,6 +1751,17 @@
                         floatingCta.setAttribute('aria-hidden', 'true');
                         return;
                     }
+                }
+
+                var blockerVisible = Array.prototype.some.call(floatingBlockers, function (section) {
+                    var rect = section.getBoundingClientRect();
+                    return rect.top < window.innerHeight * 0.9 && rect.bottom > window.innerHeight * 0.1;
+                });
+                if (blockerVisible) {
+                    floatingCta.classList.add('is-hidden-near-contact');
+                    floatingCta.classList.remove('is-visible');
+                    floatingCta.setAttribute('aria-hidden', 'true');
+                    return;
                 }
 
                 floatingCta.classList.remove('is-hidden-near-contact');
@@ -1705,6 +1806,9 @@
                     var wrap = testimonialClip.closest('.testimonial-video-wrap');
                     if (wrap) wrap.classList.add('is-playing');
                 });
+            });
+            document.querySelectorAll('[data-track="whatsapp"]').forEach(function (link) {
+                link.addEventListener('click', function () { trackEvent('whatsapp_click'); });
             });
 
             if (testimonialVideo && testimonialButtons.length && testimonialName && testimonialRole && testimonialDescription) {

@@ -76,6 +76,8 @@ export default async function handler(request, response) {
   const phone = normalizePhone(body.phone);
   const businessName = getString(body.businessName, 120);
   const message = getString(body.message, 1_500);
+  const leadSource = getString(body.leadSource, 200) || "דף נחיתה";
+  const pageUrl = getString(body.pageUrl, 500);
   const phoneDigits = phone.replace(/\D/g, "");
 
   if (fullName.length < 2) {
@@ -106,11 +108,11 @@ export default async function handler(request, response) {
         secret: webhookSecret,
         externalLeadId,
         submittedAt: new Date().toISOString(),
-        source: "דף נחיתה",
+        source: leadSource,
         fullName,
         phone,
         businessName,
-        message,
+        message: pageUrl ? `${message}${message ? "\n\n" : ""}עמוד מקור: ${pageUrl}` : message,
       }),
     });
 
