@@ -11,6 +11,17 @@
     <meta property="og:locale" content="he_IL">
     <meta property="og:image" content="https://www.omerbaruch.com/logo-mark.png">
     <link rel="canonical" href="https://www.omerbaruch.com/">
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1588158266036507');
+        fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&amp;family=Heebo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -1091,6 +1102,7 @@
         </style>
     </head>
     <body class="bg-background text-on-background antialiased selection:bg-primary/30 selection:text-primary">
+    <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1588158266036507&amp;ev=PageView&amp;noscript=1"></noscript>
     <!-- Header -->
     <header class="site-header fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-outline-variant/20">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-8 py-4 flex justify-between items-center">
@@ -1727,6 +1739,9 @@
                     })
                     .then(function () {
                         trackEvent('lead_form_submit', { source: leadSourceField ? leadSourceField.value : 'דף נחיתה', location: location });
+                        if (typeof window.fbq === 'function') {
+                            window.fbq('track', 'Lead');
+                        }
                         window.location.assign('/thank-you.html');
                     })
                     .catch(function (error) {
